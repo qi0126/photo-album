@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>销售管理</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link href="../css/imgcenter.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/customer_manage.js"></script>
+</head>
+<body style="background-color:#eee;">
+    <div id="breadcrumb">
+        <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+        <a href="products.html">珠宝图鉴后台管理系统</a>
+        <img src="../img/breadcrumb.png"/>
+        <span class="font16">销售管理</span>
+        <img src="../img/breadcrumb.png"/>
+        <span class="font16">销售团队管理</span>
+    </div>
+    <div>
+    	<table class="imgcentertab" cellpadding="0" border="1"  cellspacing="10">
+          <tr class="imgctabtr" bgcolor="#2b6aa2" style="">
+            <td width="20%">销售团队列表</td>
+            <td width="80%">销售团队详细信息</td>
+          </tr>
+          <tr style="">
+            <td valign="top">
+            	<div>
+                	<button  class="btn btn-primary">创建新团队</button>
+                    <button class="btn btn-primary">删除团队</button>
+                </div>
+                <div>
+                	<input placeholder="请输入团队名称"></input>
+                </div>
+                <div>
+                	<ul id="customer_list">
+                    	<li><input name="Fruit" type="checkbox" value="河北区" style="float:left;margin:18px 0 0 30px;"/>河北区</li>
+                    	<li><input name="Fruit" type="checkbox" value="北区" style="float:left;margin:18px 0 0 30px;"/>北区</li>
+                    	<li><input name="Fruit" type="checkbox" value="南区" style="float:left;margin:18px 0 0 30px;"/>南区</li>
+                    	<li><input name="Fruit" type="checkbox" value="中区" style="float:left;margin:18px 0 0 30px;"/>中区</li>
+                    	<li><input name="Fruit" type="checkbox" value="西北区" style="float:left;margin:18px 0 0 30px;"/>西北区</li>
+                    	<li><input name="Fruit" type="checkbox" value="成都分公司" style="float:left;margin:18px 0 0 30px;"/>成都分公司</li>
+                    	<li><input name="Fruit" type="checkbox" value="河南分公司" style="float:left;margin:18px 0 0 30px;"/>河南分公司</li>
+                    	<li><input name="Fruit" type="checkbox" value="直营区" style="float:left;margin:18px 0 0 30px;"/>直营区</li>
+                    </ul>
+                </div>
+                <div>
+              	<button class="btn btn-primary">添加到团队</button>
+              </div>
+            </td>
+            <td valign="top">
+            	<div style="text-align:left;">团队名称<input name="Text1" type="text" /></div>
+            	<table class="table2_right_css">
+                	<tr>
+                    	<td align="left"><b>业务团队</b></td>
+                    </tr>
+                	<tr>
+                    	<td>
+			            	<div>
+			            		<input placeholder="请输入客户名称"></input>
+			                	<button  class="btn btn-primary">添加新客户</button>
+			                    <button class="btn btn-primary">删除客户</button>
+			                </div>
+			                <div>
+			                	<ul id="customer_list">
+			                    	<li style="background-color:gray;color:#fff;"><input name="Fruit" type="checkbox" value="全选" style="float:left;margin:18px 0 0 30px;"/>
+									团队成员列表</li>
+			                    	<li><input name="Fruit" type="checkbox" value="客户A" style="float:left;margin:18px 0 0 30px;"/><span class="sale_team_people">
+									团队负责人</span>
+									A</li>
+			                    	<li><input name="Fruit" type="checkbox" value="客户B" style="float:left;margin:18px 0 0 30px;"/>B</li>
+			                    	<li><input name="Fruit" type="checkbox" value="客户C" style="float:left;margin:18px 0 0 30px;"/>C</li>
+			                    	<li><input name="Fruit" type="checkbox" value="客户D" style="float:left;margin:18px 0 0 30px;"/>D</li>
+			                    </ul>
+			                </div>
+                    	</td>
+                    </tr>
+                	<tr>
+                    	<td></td>
+                    </tr>
+                </table>
+<table class="table2_right_css">
+                	<tr>
+                    	<td align="left"><b>业务团队</b></td>
+                    </tr>
+                	<tr>
+                    	<td>
+			            	<div>
+			            		<input placeholder="请输入客户名称"></input>
+			                	<button  class="btn btn-primary">添加新客户</button>
+			                    <button class="btn btn-primary">删除客户</button>
+			                </div>
+			                <div>
+			                	<ul id="customer_list">
+			                    	<li style="background-color:gray;color:#fff;"><input name="Fruit" type="checkbox" value="全选" style="float:left;margin:18px 0 0 30px;"/>
+									团队成员列表</li>
+			                    	<li><input name="Fruit" type="checkbox" value="客户A" style="float:left;margin:18px 0 0 30px;"/><span class="sale_team_people">
+									团队负责人</span>
+									A</li>
+			                    	<li><input name="Fruit" type="checkbox" value="客户B" style="float:left;margin:18px 0 0 30px;"/>B</li>
+			                    	<li><input name="Fruit" type="checkbox" value="客户C" style="float:left;margin:18px 0 0 30px;"/>C</li>
+			                    	<li><input name="Fruit" type="checkbox" value="客户D" style="float:left;margin:18px 0 0 30px;"/>D</li>
+			                    </ul>
+			                </div>
+                    	</td>
+                    </tr>
+                	<tr>
+                    	<td></td>
+                    </tr>
+                </table>
+
+
+                <div style="width:100%;float:left;">
+                	<button class="btn btn-primary">保 存</button> <button class="btn btn-primary">取 消</button>
+                </div>
+            </td>
+          </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" CONTENT="-1">
+<meta http-equiv="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Pragma" CONTENT="no-cache">
+<link href="css/layer.css" rel="stylesheet" type="text/css" />
+<link href="css/ectouch.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="fonts/iconfont.css" rel="stylesheet" type="text/css" />
+<script src="js/TouchSlide.1.1.source.js" type="text/javascript"></script>
+<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="js/http.js" type="text/javascript"></script>
+<script src="js/Android_download.js" type="text/javascript"></script>
+<!-- <script src="js/jquery.qrcode.min.js" type="text/javascript"></script> -->
+<script src="js/common_js.js" type="text/javascript"></script>
+<script src="js/jquery.reveal.js" type="text/javascript"></script>
+<script src="js/weixin.js" type="text/javascript"></script>
+<script type="text/javascript">
+// $(function(){
+// 	var str = "http://zbtj.batar.cn:8888/photo-album/app/download/newversion";
+// 	$('#code').qrcode(str);
+// })
+
+</script>
+<title>安卓手机下载页</title>
+</head>
+
+<body>
+<div class="Layout_style">
+  <!--提示下载APP顶部条选项-->
+  <!-- <div class="appdiv" id="appdiv">
+    <div class="downloadappdiv">
+      <span style="float:left;width:56px;"><img src="images/icon/33.png" width="50px"></img></span>
+      <span style="float:left;width:130px;">珠宝图鉴<br/>海量图库，优先选购<span>
+    </div>
+    <button class="close_download_button" onclick="close_appdiv()">
+      <img src="images/icon/44.png" width="30px"></img>
+    </button>
+    <button class="appbutton" onclick="app_search()">下载APP</button>
+  </div> -->
+
+<!--顶部通用样式-->
+ <header id="header">
+  <div class="header_l header_return"><a href="javascript:history.go(-1)" class="iconfont icon-back"></a></div>
+  <h1>“珠宝图鉴”安卓APP下载</h1>
+</header>
+<!--新款产品列表-->
+<div class="detailed_style clearfix">
+  <div align="center" style="margin:30px 0 30px 0;">
+      <img src="images/Android_download.png" width="200px"></img>
+      <p>
+        长按二维码，点击“识别图中二维码”下载APP<br/>如果下载不成功，请点击右上角“<span style="font-size:16px;color:red;">在浏览器中打开</span>”按钮。<br/><br/>
+        <div style="font-size:15px;"><a href="http://zbtj.batar.cn:8888/photo-album/app/download/newversion" class="ainput" type="button">点击此处下载安卓APP</a></div>
+      </p>
+  </div>
+</div>
+
+</div>
+<!--弹框-->
+<div class="cd-popup" id="png_window" style="display:none;">
+    <div class="cd-popup-container">
+      <img src="images/pagehead.png" width="100%"></img>
+    </div>
+</div>
+<script type="text/javascript">
+    /*弹框JS内容*/
+    jQuery(document).ready(function($){
+           var ua = window.navigator.userAgent.toLowerCase();
+           //alert(ua);
+           if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+              $("#png_window").show();
+           } else {
+             $("#png_window").hide();
+           }
+        //打开窗口
+        $('.cd-popup').addClass('is-visible');
+        //关闭窗口
+        $('.cd-popup').on('click', function(event){
+            if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup') ) {
+                event.preventDefault();
+                $(this).removeClass('is-visible');
+            }
+        });
+        //ESC关闭
+        $(document).keyup(function(event){
+            if(event.which=='27'){
+                $('.cd-popup').removeClass('is-visible');
+            }
+        });
+    });
+</script>
+</body>
+</html>

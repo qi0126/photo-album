@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>产品库</title>
+	<link rel="stylesheet" type="text/css" href="../css/new/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/jBootsrapPage.css">
+	<link rel="stylesheet" type="text/css" href="../css/products.css">
+	<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/jBootstrapPage.js"></script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<script type="text/javascript" src="../js/http.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/cover.css">
+	<script type="text/javascript" src="../js/cover.js"></script>
+    <link rel="stylesheet" href="../css/layer.css">
+		<link rel="stylesheet" href="../css/jquery.datetimepicker.css"/>
+
+		<link rel="stylesheet" type="text/css" href="../css/xcConfirm.css"/>
+		<script src="../js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/sockjs.min.js"></script>
+</head>
+<body style="background-color:#eee;overFlow:auto">
+	<div class="content">
+    	<div id="breadcrumb">
+            <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+            <a href="products.html">珠宝图鉴后台管理系统</a>
+            <img src="../img/breadcrumb.png"/>
+            <span class="font16">产品管理</span>
+            <img src="../img/breadcrumb.png"/>
+            <span class="font16">产品库</span>
+        </div>
+		<div class="control_panel">
+			<!-- <select name="category" onchange="selectCategory(this)" id="category_select"> -->
+			<select name="category" onchange="searchProduct(this)" id="category_select" style="margin-bottom:10px;height:30px;">
+				<option value="0">全部大类</option>
+			</select>
+			<input id="search_input" type="text" name="search" onkeyup="searchProduct(this)" placeholder="在此输入要搜索的产品编号" style="width:394px;height:30px;">
+			<!-- <button id="btn_search" onclick="searchProduct(this)" class="btn btn-primary">搜索</button> --><br>
+
+      <div style="width:200px;"></div>
+			<button class="btn btn-default cd-popup-trigger2" onclick="updateProducts(this)" id="updateProductsButton">刷新产品库</button>
+			<button class="btn btn-default" onclick="multiUpdateCategory(this)" style="display:none;">批量调整分类</button>
+			<button class="btn btn-default" onclick="multiOnOffLine(this)">批量上/下架</button>
+			<button class="btn btn-default" onclick="multiDel(this)">批量删除</button>
+			<button class="btn btn-default" onclick="addToCategory(this)">批量添加到推广类别</button>
+      <br/><br/>
+			<table>
+				<thead>
+					<tr>
+						<td><input id="all-select-btn" type="checkbox" name="all_selected" onchange="allSelectOs(this)" style="margin:0;"> 全选</td>
+            <td>匹配图</td>
+            <td>产品</td>
+            <td>产品编号</td>
+						<td>
+							<ul class="footer_flex clearfix">
+								<li>
+										<div class="flex-footera" style="display:none;" id="starttime_div">
+											开始时间:<input type="text" class="some_class" value="" id="title_interval_input_start"/><br/>
+											~结束时间:<input type="text" class="some_class" value="" id="title_interval_input_end"/><br/>
+											<button type="button" class="btn btn-primary" onclick="ontime_sub()">确认</button>
+											<button type="button" class="btn btn-default" onclick="ontime_cancel()">取消</button>
+										</div>
+										<font style="color:#fff;">更新时间</font><button  type="button" onClick="ontime_btn()">V</button>
+										<div id="updatatime" style="color:#fff;"></div>
+								</li>
+							</ul>
+
+						</td>
+						<td>
+							<select onclick="searchAboutOnOffLine(this)" name="search_on_off_line" class="searchAboutOnOffLine">
+								<option value="*">当前状态</option>
+								<option value="1">已上架</option>
+								<option value="0">未上架</option>
+							</select>
+						</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody id="tbody_tem"></tbody>
+			</table>
+            <div style="margin-top:20px; text-align:center;" id="fenpage_div">
+                <span id="fenpage" style="margin:20px auto;"></span>
+								<span id="fenpage_inputtext" style="margin:20px auto;display:none;"></span>
+
+                <span style="margin-left:200px;" id="select_page_div">
+                    一共有 <span id="pro_num" class="pagecss" style="color:red;"></span> 个产品，共有<span id="pro_page" class="pagecss"></span>页，
+                    每页显示
+                    <select onchange="pro_sub_num(this.options[this.selectedIndex].value);" style="width:60px;height:34px;" id="page_selected">
+                      <option value="10" selected="selected">10</option>
+                      <option value="20">20</option>
+											<option value="30">30</option>
+                    </select>
+                    个
+                </span>
+								<span style="margin-left:200px;display:none;" id="select_search_page_div">
+									每页显示
+									<select onchange="pro_subsearch_num(this.value);" style="width:60px;height:34px;" id="page_search_selected">
+										<option value="10" selected="selected">10</option>
+										<option value="20">20</option>
+										<option value="30">30</option>
+									</select>
+									个
+								</span>
+            </div>
+		</div>
+	</div>
+    <div style="height:20px; background-color:#eee;"></div>
+
+    <div class="cd-popup2" id="addwindow" style="display:none;">
+        <div class="cd-popup-container2" style="height:auto;max-height:600px;width:700px;">
+            <div id="cd-buttons">
+                <div class="row" id="loader">
+									<div style="padding:30px;font-size:24px;">正在载入，请稍等。。。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+<script type="text/javascript" src="../js/products.js"></script>
+<script src="../js/jquery.datetimepicker.full.js"></script>

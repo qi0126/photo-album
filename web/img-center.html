@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>图片中心</title>
+    <link href="../css/jBootsrapPage.css" rel="stylesheet" />
+
+    <link href="../css/new/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/new/jquery.min.js"></script>
+    <script src="../js/new/bootstrap.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/img-center.js"></script>
+    <script src="../js/jBootstrapPage.js"></script>
+    <link href="../css/imgcenter.css" rel="stylesheet" />
+    <!-- 图片上传组件开始 -->
+    <link rel="stylesheet" type="text/css" href="../css/img_listsub.css">
+    <!--<script type="text/javascript" src="../js/upload.js"></script>-->
+   	<!-- 图片上传组件结束 -->
+    <!-- 图片拖动排序开始 -->
+    <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script>
+    <!-- 图片拖动排序结束 -->
+    <script>
+			//分页js
+		$(function(){
+			createPage(10, 7, 150);
+			function createPage(pageSize, buttons, total) {
+				$(".pagination").jBootstrapPage({
+					pageSize : pageSize,
+					total : total,
+					maxPageButton: buttons,
+					onPageClicked: function(obj, pageIndex) {
+						//取页码变量pageIndex+1
+						console.log(pageIndex+1);
+					}
+				});
+			}
+		});
+	</script>
+
+
+
+  </head>
+
+  <body style="background-color:#eee;">
+    <div id="breadcrumb">
+        <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+        <a href="products.html">珠宝图鉴后台管理系统</a>
+        <img src="../img/breadcrumb.png"/>
+        <span class="font16">图片中心</span>
+    </div>
+   	<div class="category_edit">
+        <h3>图片中心</h3>
+        <p>图片命名规则 主视图： 1：主视图 2：辅主视图 3：辅主视图 4：辅主视图 5：辅主视图<br/>三视图： 11：前视图 12：顶视图 13：左视图 14：后视图 15：底视图 16：右视图 细节图： 21-40 其他图：41-99</p>
+   	</div>
+
+
+    <table class="imgcentertab" cellpadding="0" border="1"  cellspacing="10">
+      <tr class="imgctabtr" bgcolor="#2b6aa2" style="">
+        <td>图片编号文件夹</td>
+        <td>图片查看与编辑</td>
+      </tr>
+      <tr>
+        <td width="20%" valign="top">
+            <div style="padding:10px;">
+            	<!--产品搜索栏开始-->
+                <input name="Text1" onkeyup="search_input(this.value)" type="text" class="pro_search" list="pro_search"/>
+                <datalist id="pro_search"></datalist>
+                <button class="btn btn-info" onClick="product_search()">搜索</button>
+                <!--产品搜索栏结束-->
+            </div>
+            <div id="divframe" style="overFlow:auto;height:550px;padding-right:15px;">
+    				      <div id="listdiv">
+                  </div>
+
+        		</div>
+
+        </td>
+    	<td width="80%" valign="top">
+            <div style=" text-align:left;padding:10px;">
+                <button class="btn btn-primary" id="uploadimg" onClick="uploadimg()">图片上传</button>
+                <br/><br/>
+            <div>
+            <div id="uploadiv" style="display:none;">
+                <table  cellspacing="0" cellpadding="0" class="uploadtable" id="table_upload">
+                    <tr>
+                        <td valign="top" align="right">产品编码</td>
+                        <td valign="top"><div id="dir"></div><br></td>
+                    </tr>
+                    <tr>
+                        <td valign="top" align="right">轮播图片:</td>
+                        <td valign="top">
+                            <div id="click_to_upload_area" onclick="$('#file_input').click()">+选择图片上传</div>
+                            <input type="file" id="file_input" name="file_input" onchange="upload_btn(this)" multiple style="visibility:hidden;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="product_name">产品编码：<span id="listdd"></span></div>
+            <div id="divframe">
+                 <input type='button' value='批量删除' onClick="fun()" class="btn btn-warning"/>  <input id="allselect_checkout" type="checkbox" name="cb" onClick="changeState(this.checked)"> 全选
+      	   			<div id="jsonTip">
+      					       <ul id="list1"></ul>
+                </div>
+                <input name="list1SortOrder" type="hidden" />
+
+                <div id="cover" class="cover" onClick="closeCover(this)"></div>
+                 <div id="oncover" class="oncover" onClick="closeCover(this)" style="text-align:center;">
+                    <img src="" style="width:55%;margin-top:85px;">
+                </div>
+
+                <div id="iframe_win"></div>
+                <iframe name="hide_window" style=" display:none;"></iframe>
+            </div>
+
+            <div style="float:left; text-align:center; width:100%; display:none;">
+                <ul class="pagination"></ul>
+                每页
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active" onClick="checks()" value="12">
+                      <input type="radio" name="radio1" id="option1">12</label>
+                    <label class="btn btn-primary" value="24" onClick="checks()">
+                      <input type="radio" name="radio1" id="option2">24</label>
+                    <label class="btn btn-primary" value="48" onClick="checks()">
+                      <input type="radio" name="radio1" id="option3" value="48">48</label>
+                </div>条
+            </div>
+        </td>
+      </tr>
+
+    </table>
+    <div style="height:30px;"></div>
+    <iframe name="del-product" style="display:none;"></iframe>
+	<script type="text/javascript">
+		//图片中心图片拖动排序JS
+		$("#list1, #list2").dragsort({ dragSelector: "div", dragBetween: true, dragEnd: saveOrder, placeHolderTemplate: "<li class='placeHolder'><div></div></li>" });
+
+	</script>
+
+  </body>
+</html>

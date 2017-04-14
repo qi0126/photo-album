@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>产品编辑</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/edit_product.css">
+ 	<link rel="stylesheet" href="../css/new/bootstrap.min.css">
+  <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<script type="text/javascript" src="../js/http.js"></script>
+	<script type="text/javascript" src="../js/edit_product.js"></script>
+</head>
+<body style="background-color:#eee;">
+	<div class="editproduct">
+    	<div id="breadcrumb">
+            <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+						<a href="products.html">珠宝图鉴后台管理系统</a>
+            <img src="../img/breadcrumb.png"/>
+            <span class="font16">产品管理</span>
+            <img src="../img/breadcrumb.png"/>
+            <span class="font16">产品编辑</span>
+        </div>
+        <div class="editcont">
+            <form name="edit_product" id="edit_product">
+                <fieldset class="editfieldset">
+                    <div class="editlegend">产品基本信息</div>
+										<table id="prolist" style="width: 100%" cellspacing="0" cellpadding="0">
+											<tr>
+												<td class="lefttd">产品分类:</td>
+												<td colspan="3"><select name="category"></select></td>
+											</tr>
+											<tr>
+												<td class="lefttd">产品名称:</td>
+												<td width="47%"><input type="text" name="name" style="width:90%;" v-model="name"></td>
+												<td class="lefttd">产品编号:</td>
+												<td width="47%"><input type="text" name="number" style="width:85%;" v-model="number"></td>
+											</tr>
+											<tr>
+												<td class="lefttd">产品克重:</td>
+												<td><input type="text" name="pronum" style="width:90%;"></td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr>
+												<td class="lefttd" valign="top">产品描述:</td>
+												<td colspan="3">
+													<textarea name="detil" rows="5" cols="120" placeholder="填写产品卖点、产品寓意、产品文化由来" style="width:93%;"></textarea>
+												</td>
+											</tr>
+										</table>
+                </fieldset>
+                <fieldset class="editfieldset">
+                    <div class="editlegend">产品属性</div>
+                    <div class="col-sm-6">
+                        <label for="condition" class="leftfont">产品材质:</label>
+												<input style="width:78%;"></input>
+                         <br/><br/>
+                        <label for="shapes" class="leftfont">适合人群:</label>
+												<input style="width:78%;"></input>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="kuanshi">外观形态:</label>
+                        <input style="width:78%;"></input>
+                        <br/><br/>
+                        <label for="craft">产品工艺:</label>
+                        <input style="width:78%;"></input>
+                    </div>
+                </fieldset>
+                <fieldset class="editfieldset">
+                    <div class="editlegend">产品规格</div>
+                    <table id="addrowtable" class="addrowtable">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </fieldset>
+                <fieldset class="editfieldset">
+                    <div class="editlegend">产品推广</div>
+                </fieldset>
+            </form>
+            <hr/>
+            <div style="width:100%; text-align:center;">
+            	<button id="btn_submit" class="submitbutton btn btn-primary" style="line-height:37px;font-size:16px;">确认修改</button> <a href="products.html" type="button" class="submitbutton btn btn-info" style="line-height:37px;font-size:16px;">取消并返回产品库</a>
+            </div>
+            <div style="height:50px;"></div>
+        </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>轮播首页</title>
+    <link rel="stylesheet" href="../css/carousel.css">
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/jquery.datetimepicker.css"/>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <!-- 图片拖动排序开始 -->
+    <!-- <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script> -->
+    <!-- 图片拖动排序结束 -->
+    <script src="../js/http.js"></script>
+    <script src="../js/carousel.js"></script>
+
+</head>
+<body style="background-color:#eee;">
+
+
+  	<div id="content-header">
+        <div id="breadcrumb">
+        	<img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+          <a href="products.html">珠宝图鉴后台管理系统</a>
+            <img src="../img/breadcrumb.png"/>
+        	<span class="font16">首页轮播</span>
+        </div>
+    </div>
+    <div class="first_top">
+        <button id="btn-open"  class="btn btn-primary btn-lg" onclick="addCarousel()">点击添加新轮播</button>
+        <button id="btn-close"  class="btn btn-warning btn-lg" onclick="closeView()" style="visibility:hidden;">收起轮播</button>
+    </div>
+
+    <table class="firstpage_img_table"  cellspacing="0" cellpadding="0" id="table_upload">
+        <tr>
+            <td><div class="carousel_title">标 题</div></td>
+            <td><input type="text" id="title_input" maxlength="16"></td>
+        </tr>
+        <tr>
+            <td><div class="carousel_title">轮播时间</div></td>
+            <td>
+<!--            <input type="datetime-local" id="title_interval_input_start"><input type="datetime-local" id="title_interval_input_end">-->
+            开始时间:<input type="text" class="some_class" value="" id="title_interval_input_start"/>
+            ~结束时间:<input type="text" class="some_class" value="" id="title_interval_input_end"/>
+    		</td>
+        </tr>
+        <tr>
+            <td><div class="carousel_title">轮播图片</div></td>
+            <td>
+                <input type="file" id="file_input" name="file_input" multiple style="visibility:hidden;">
+                <!-- <input type="file" webkitdirectory>   -->
+                <div id="click_to_upload_area" style="display:block;">+选择图片上传</div>
+                <img id="loading" src="../images/loading.gif" style="display:none;" />
+                <p id="upload_res_info"></p>
+            </td>
+        </tr>
+    </table>
+
+    <div class="carousel_container" id="carousel_preview"></div>
+    <input name="list1SortOrder" type="hidden" />
+
+    <div id="cover" class="cover" onclick="closeCover(this)"></div>
+
+    <div id="oncover" class="oncover" onclick="closeCover(this)" style="text-align:center;">
+        <img src="" style="width:55%;margin-top:85px;">
+    </div>
+
+    <div id="selectcover" class="selectcover" style="text-align:center;"></div>
+    <div id="onselectcover" class="onselectcover"></div>
+    <div style="height:2em;"></div>
+
+
+</body>
+<script src="../js/jquery.datetimepicker.full.js"></script>
+<script>
+  	$('.some_class').datetimepicker();
+  		// $("#list1, #list2").dragsort({ dragSelector: "div", dragBetween: true, dragEnd: saveOrder, placeHolderTemplate: "<li class='placeHolder'><div></div></li>" });
+  		function saveOrder() {
+  			var data = $("#list1 li").map(function() { return $(this).children().html(); }).get();
+  			$("input[name=list1SortOrder]").val(data.join("|"));
+  		};
+  		function list_area(){
+  			var input_area=document.getElementsByName("input_index");
+  			for(var i=0;i<input_area.length;i++){
+  				input_area[i].value = i+1;
+  			}
+  		}
+
+
+</script>
+</html>
+<script type="text/javascript">
+    function delCarousel(elem) {
+        if (confirm("确定要删除该组轮播?")) {
+            var id = elem.id;
+            //console.log(elem.id);
+            var post_data = new FormData();
+            post_data.append("id", id);
+			         //console.log(post_data);
+            var cb = function(data) {
+                if (data['state'] == true) {
+                    // alert("删除轮播成功");
+                    location.reload();
+                } else {
+                    //console.log(data);
+                    alert("尚未删除轮播");
+                }
+            };
+            http.postAjax_clean("/photo-album/manger/deletemaintab", post_data, cb);
+        }
+    }
+</script>

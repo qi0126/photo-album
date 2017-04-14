@@ -1,0 +1,84 @@
+
+.editproduct{
+	background-color:#eee;
+}
+input[type="text"]{
+	height:37px;
+	vertical-align:middle;
+	margin:0;
+}
+#breadcrumb {
+    background-color: #fff;
+    border-bottom: 1px solid #e3ebed;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 10px;
+	margin-bottom:20px;
+	font-size:16px;
+}
+.editcont{
+	width:96%;
+	margin:0 auto;
+}
+.editfieldset{
+	background-color:#FFF;
+	border:1px solid #ccc;
+	border-top:0;
+	border-bottom-left-radius: 3px;
+  	border-bottom-right-radius: 3px;
+	padding:10px;
+	margin-top:20px;
+}
+.editfieldset input{
+	font-size:16px;
+	}
+.editfieldset button{
+	font-size:16px;
+	}
+.editlegend{
+	background-color:#2b6aa2;
+	padding-left:10px;
+	color:#FFF;
+  	border-top-left-radius: 3px;
+  	border-top-right-radius: 3px;
+	font-size:18px;
+	height:40px;
+	line-height:40px;
+	margin:-11px;
+	margin-bottom:10px;
+}
+.editproductseo{
+	width:120px;
+	float:left;
+}
+.leftfont{
+	width:80px;
+	text-align:right;
+}
+.addrowtable{
+	width:100%;
+}
+.addrowtable tr td{
+	text-align:center;
+	height: 50px;
+}
+label{
+	font-size:16px;
+}
+fieldset{
+	font-size:16px;
+}
+.submitbutton{
+	width:350px;
+	height:50px;
+	font-size:16px;
+}
+.lefttd{
+	min-width:72px;
+	font-size:16px;
+	font-weight: bold;
+	text-align: right;
+}
+#prolist{
+	line-height: 60px;
+}

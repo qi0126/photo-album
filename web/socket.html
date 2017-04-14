@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>Java API for WebSocket (JSR-356)</title>
+</head>
+<body style="background-color:#eee;">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/sockjs.min.js"></script>
+<script type="text/javascript">
+	var websocket = null;
+	var localurl=document.location.href.split("/")[2];
+	if ('WebSocket' in window) {
+		// websocket = new WebSocket("ws://zbtj.batar.cn:88/photo-album/input_message");
+		websocket = new WebSocket("ws://"+localurl+"/photo-album/ordermessage");
+	}
+	else if ('MozWebSocket' in window) {
+		// websocket = new MozWebSocket("ws://zbtj.batar.cn:88/photo-album/input_message");
+		websocket = new MozWebSocket("ws://"+localurl+"/photo-album/ordermessage");
+	}
+	else {
+		// websocket = new SockJS("ws://zbtj.batar.cn:88/photo-album/input_message");
+		websocket = new SockJS("ws://"+localurl+"/photo-album/ordermessage");
+	}
+	websocket.onopen = onOpen;
+	websocket.onmessage = onMessage;
+	websocket.onerror = onError;
+	websocket.onclose = onClose;
+
+	function onOpen(openEvt) {
+		//alert(openEvt.Data);
+	}
+
+	function onMessage(evt) {
+		console.log(evt.data);
+	}
+	function onError() {}
+	function onClose() {}
+
+	function doSend() {
+		if (websocket.readyState == websocket.OPEN) {
+            //var msg = document.getElementById("inputMsg").value;
+						var msg = "list#";
+            websocket.send(msg);//调用后台handleTextMessage方法
+            alert("连接websocket成功!");
+        } else {
+        	alert("连接websocket失败!");
+        }
+	}
+
+	// var t=setTimeout("doSend();",1000);
+</script>
+请输入：<textarea rows="5" cols="10" id="inputMsg" name="inputMsg"></textarea>
+<button onClick="doSend();">发送</button>
+</body>
+</html>

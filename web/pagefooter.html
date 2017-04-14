@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html style="background-color:#eee">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>轮播首页</title>
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/order_manage.css">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/new/bootstrap.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/pagefooter.js"></script>
+</head>
+<body style="background-color:#eee;">
+  <div id="breadcrumb">
+      <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+      <a href="products.html">珠宝图鉴后台管理系统</a>
+      <img src="../img/breadcrumb.png"/>
+      <span class="font16">首页定制</span>
+      <img src="../img/breadcrumb.png"/>
+      <span class="font16">页脚设置</span>
+  </div>
+  <div class="container1">
+    <!-- <div>
+		    <button type="button" class="btn btn-primary btn-lg">联系我们</button>
+    </div> -->
+    <div>
+      <div id="display_logo">
+        <!-- <div>
+          <div id="logoimg"></div>
+          <div>最佳像素：1440*250</div>
+          <div>
+            <input type="button" value="点击上传自定义图标" size="30" onclick="upload.click()" class="btn btn-info btn-lg"/>
+            <input type="file" id="upload" onchange="uploadFile()" name="f" style="position:absolute; filter:alpha(opacity=0); opacity:0; width:30px; " size="1" />
+          </div>
+        </div> -->
+        <div style="margin-top:30px;">
+          <button type="button" class="btn btn-warning btn-lg">联系我们</button>
+        </div>
+        <div>
+          <div><input id="foot_checkbox" name="Checkbox1" type="checkbox" checked="checked" value="logo" style="margin:0" onClick="foot_display(this)">开启</div>
+          <input id="isurl" name="Checkbox1" type="checkbox" value="pageurl" style="margin:0" onclick="isurl(this)"> 转跳主页 <input id="pageurl" name="Text1" type="text" class="foot_input" value="www.batar.cn" onkeydown="if(event.keyCode==13){changeurl(this)}" onBlur="changeurl(this)"/><br/>
+          <input id="istel" name="Checkbox1" type="checkbox" value="telnumber" onclick="istel(this)"> 拨打电话 <input id="telnumber" name="Text1" type="text" class="foot_input" value="0755-22929812" onkeydown="if(event.keyCode==13){changetel(this)}" onBlur="changetel(this)" maxlength="16"/><br/>
+          <input id="isaddress" name="Checkbox1" type="checkbox" value="address" style="margin:0" onclick="isaddress(this)"> 地址导航 <input id="address" name="Text1" type="text" class="foot_input" style="width:500px" value="深圳市盐田区盐田街道北山道北山工业区二期百泰珠宝大楼" onkeydown="if(event.keyCode==13){changeadd(this)}" onBlur="changeadd(this)" maxlength="30"/><br/>
+        </div>
+      </div>
+      <div>
+        <button type="button" id="datasavesuccess_btn" class="btn btn-primary" style="display:none;">数据保存成功！</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

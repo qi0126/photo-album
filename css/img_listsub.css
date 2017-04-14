@@ -1,0 +1,98 @@
+
+body {
+	font-family:Microsoft YaHei;
+	font-size:12px;
+}
+* {
+	margin:0px;
+	padding:0px;
+}
+#click_to_upload_area {
+	border: 2px dashed #00BFFF;
+	color: #00BFFF;
+	width: 300px;
+	height: 80px;
+	font-size: 1.5em;
+	text-align: center;
+	padding-top: 55px;
+	cursor: pointer;
+}
+.cover {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	filter: alpha(opacity=80);
+	background-color: #eee;
+	z-index: 1002;
+	display: none;
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+.oncover {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 1004;
+	display: none;
+}
+.form-control {
+	width:308px;
+	height:30px;
+	font-size:18px;
+}
+checkbox {
+	width:50px;
+	height:50px;
+}
+.uploadtable {
+	width:96%;
+	margin:0 auto;
+	background-color:#f0f0f0;
+	font-size:16px;
+}
+.product_name {
+	padding-bottom:36px;
+	font-size:20px;
+}
+.uploadtable tr td {
+	padding:10px;
+}
+.img_listcc {
+	float:left;
+	width:24%;
+	padding-top:10px;
+	font-size:16px;
+}
+.img_listimg_div {
+	padding:10px;
+	background-color:#f0f0f0;
+	border-radius: 8px;
+	width:210px;
+	min-height:180px;
+	text-align:center;
+}
+.img_listimg_div span{
+	height:180px;
+	width:0;
+	overflow:hidden;
+	display:inline-block;
+	vertical-align:middle;
+}
+.img_listimg {
+	width:180px;
+	vertical-align:middle;
+}
+#click_to_upload_area {
+	padding-top:21px;
+}
+#jsonTip {
+	width:100%;
+}
+.delimg {
+	width:20px;
+	margin-left:85px;
+}

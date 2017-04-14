@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>演示：使用jquery.qrcode生成二维码</title>
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<style type="text/css">
+.demo{width:400px; margin:40px auto 0 auto; min-height:250px;}
+.demo p{line-height:30px}
+#code{margin-top:10px}
+</style>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/http.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="/photo-album/js/jquery.qrcode.min.js"></script>
+<script type="text/javascript">
+
+
+window.onload = function() {
+	var local = "";
+
+	//JSON调用列表JS
+    function get_cb(data) {
+        var appurl ="http://192.168.51.60:8082/photo-album/app/download/" + data["url"];
+		$('#code').qrcode(appurl);
+		$('#code1').html(appurl);
+    }
+
+	//调用app上传
+    http.getAjax_clean("/photo-album/app/newversion", get_cb);
+
+};
+
+
+</script>
+</head>
+
+<body style="background-color:#eee;">
+
+
+<div id="main">
+   <div class="demo">
+   		<div id="code"></div>
+        <div id="code1"></div>
+   </div>
+
+</div>
+
+</body>
+</html>

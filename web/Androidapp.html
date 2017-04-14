@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>轮播首页</title>
+    <link rel="stylesheet" href="../css/mobliephoneapp.css">
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/Androidapp.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.qrcode.min.js"></script>
+
+</head>
+<body style="background-color:#eee;">
+  	<div id="content-header">
+        <div id="breadcrumb">
+        	<img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+        	<a href="img-center.jsp">珠宝图鉴后台管理系统</a>
+            <img src="../img/breadcrumb.png"/>
+        	<span class="font16">系统更新</span>
+            <img src="../img/breadcrumb.png"/>
+        	<span class="font16">安卓APP</span>
+        </div>
+    </div>
+
+    <div class="first_top">
+    	<div style="float:right;padding-top:90px;">
+            <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+                最新安卓APP下载
+            </button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header active">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLable">最新安卓APP下载</h4>
+                        </div>
+                        <div class="modal-body" align="center">
+                            <div id="code"></div>
+                            <div id="code1"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="file" id="file_input" name="file_input" style="visibility:hidden;">
+        <input type="text" placeholder="请输入版本号" id="version" onkeyup="value=value.replace(/[^\-?\d.]/g,'')" style="width: 277px;"/>
+         <br/>
+        <textarea name="TextArea1" style="width: 277px; height: 78px" placeholder="备注更新版本内容" id="note"></textarea>
+        <button id="click_to_upload_area" class="btn btn-primary btn-lg">+选择安卓APP上传</button>
+
+        <!--<img id="loading" src="../images/loading.gif" style="display:none;" />-->
+        <p id="upload_res_info"></p>
+    </div>
+
+    <div class="mobileapptable">
+        <table class="table table-striped table-hover" style="margin-bottom:0px;">
+            <thead>
+                <tr>
+                    <th class="sucth">版本号</th>
+                    <th class="sucth">MD5码</th>
+                    <th class="sucth">URL地址</th>
+                    <th class="sucth">上传时间</th>
+                    <th class="sucth">备注更新内容</th>
+                    <th class="sucth">删 除</th>
+                </tr>
+            </thead>
+            <tbody id="applist"></tbody>
+        </table>
+        <div class="codeclass" style="display:none;">
+        	<div id="code"></div>
+            <div id="code1"></div>
+        </div>
+    </div>
+</body>
+
+</html>

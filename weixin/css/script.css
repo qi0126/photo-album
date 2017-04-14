@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;text-decoration:none;}
+body{font-family:'Microsoft Yahei';}
+
+
+/* PicSlide */
+#PicSlide{overflow:hidden;position:relative;margin:0 auto;}
+#PicSlide .img{height:180px;overflow:hidden;}
+#PicSlide .img li{display:none;position:absolute;top:0;left:0;width:100%;}
+#PicSlide .title{bottom:70px;width:100%;position:absolute;}
+#PicSlide .shadow{background-color:#000;opacity:.5;filter:alpha(opacity=50);height:70px;}
+#PicSlide .title .h3{z-index:30;line-height:20px;margin:4px 10px 0 10px;position:absolute;}
+#PicSlide .title .h3 a{font-weight:normal;font-size:12px;color:#fff;}
+#PicSlide .thumb{bottom:0;left:0;_zoom:1;height:70px;}
+#PicSlide .thumb ul{z-index:20;width:100%;overflow:hidden;_zoom:1;margin-top:30px;}
+#PicSlide .thumb li{width:23%;height:60px;margin-right:6px;float:left;_display:inline;margin-bottom: 10px;}
+#PicSlide .thumb li img{border: 2px solid #ddd;}
+#PicSlide .thumb .now-status{position:absolute;width:130px;height:20px;background:url(../images/slider-ico.png) no-repeat 0 0;z-index:-1;top:0;left:0;}

@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>销售管理</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link href="../css/imgcenter.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/sale_man_manage.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#eee;">
+    <div id="breadcrumb">
+        <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+        <a href="products.html">珠宝图鉴后台管理系统</a>
+        <img src="../img/breadcrumb.png"/>
+        <span class="font16">销售管理</span>
+        <img src="../img/breadcrumb.png"/>
+        <span class="font16">销售人员管理</span>
+    </div>
+    <div>
+    	<table class="imgcentertab" cellpadding="0" border="1"  cellspacing="10">
+          <tr class="imgctabtr" bgcolor="#2b6aa2" style="">
+            <td width="30%">销售人员列表</td>
+            <td width="70%">销售人员详细信息</td>
+          </tr>
+          <tr style="">
+            <td valign="top">
+            	<div>
+                	<button class="btn btn-primary" onclick="add_saleman_btn()">添加员工</button>
+                  <button class="btn btn-danger" onclick="del_saleman_btn()">删除员工</button>
+                </div>
+                <div>
+                	<input placeholder="请输入员工名称" maxlength="16"></input>
+                </div>
+                <div>
+                	<ul id="customer_list">
+                  </ul>
+                </div>
+                <div>
+              	<button class="btn btn-primary">添加到团队</button>
+              </div>
+            </td>
+            <td valign="top">
+            	<table class="table2_right_css">
+                	<tr>
+                    	<td>个人信息</td>
+                    	<td></td>
+                    </tr>
+                	<tr>
+                    	<td>姓名</td>
+                    	<td><input id="name" name="Text1" type="text" maxlength="16"></td>
+                   	</tr>
+                	<tr>
+                    	<td>工号</td>
+                    	<td><input id="number" name="Text1" type="text" maxlength="16"><span id="number_text" style="display:none;"></span></td>
+                    </tr>
+                	<tr>
+                    	<td>性别</td>
+                    	<td>
+		                    <select name="Select1" id="sex">
+          								<option selected="">男</option>
+          								<option>女</option>
+          							</select><br/>
+                    	</td>
+                    </tr>
+                	<tr>
+                    	<td>联系电话</td>
+                    	<td><input id="phone" name="Text1" type="text" maxlength="16"></td>
+                    </tr>
+                	<tr>
+                    	<td>职位</td>
+                    	<td>
+		                    <select name="Select2" id="position">
+          								<option selected="">客服专员</option>
+          								<option>区域经理</option>
+          								<option>大区经理</option>
+          								<option>销售副总</option>
+          							</select><br/>
+                    	</td>
+                    </tr>
+                	<tr>
+                    	<td>所属大区</td>
+                    	<td><input name="Text1" type="text" id="region" maxlength="16"></td>
+                    </tr>
+                	<tr>
+                    	<td>所属省份</td>
+                    	<td>
+                        <select name="location_p" id="location_p">
+                        </select>
+                      </td>
+                    </tr>
+                	<tr>
+                    	<td>所属城市</td>
+                    	<td>
+                        <select name="location_c" id="location_c">
+                        </select>
+                      </td>
+                    </tr>
+                </table>
+            	<table class="table2_right_css">
+                	<tr>
+                    	<td>个人信息</td>
+                    </tr>
+                	<tr>
+                    	<td>
+                        <div>
+                          <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加跟进客户</button>
+			                    <button class="btn btn-danger" onclick="delete_seller_btn()">删除跟进客户</button>
+			                  </div>
+  			                <div>
+  			                	<input placeholder="请输入客户名称"></input>
+  			                </div>
+  			                <div>
+  			                	<ul id="customer_followed_list">
+                            暂无跟进客户，请按"添加跟进客户"按钮添加客户！
+  			                  </ul>
+  			                </div>
+                    	</td>
+                    </tr>
+                	<tr>
+                    	<td></td>
+                    </tr>
+                </table>
+                <div style="width:100%;float:left;">
+                  <div id="saleman_save_div" style="display:none;">
+                    <button class="btn btn-primary" onclick="saleman_save_btn()">保 存</button>
+                  </div>
+                  <div id="saleman_submit_div">
+                    <button class="btn btn-primary" onclick="saleman_submit_btn()">创建新员工</button>
+                    <button class="btn btn-default" onclick="add_saleman_btn()">取 消</button>
+                  </div>
+                </div>
+            </td>
+          </tr>
+        </table>
+    </div>
+
+    <!--模态框（Modal）-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+                <div class="modal-header active">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLable">添加跟进客户</h4>
+                </div>
+                <div class="modal-body" id="customer_follow_list">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="add_customer_follow_btn()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

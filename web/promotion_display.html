@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html style="background-color:#fff">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>轮播首页</title>
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/promotion_category.css">
+    <script type="text/javascript" src="../js/new/jquery.min.js"></script>
+    <script src="../js/new/bootstrap.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/promotion_display.js"></script>
+    <!-- 图片拖动排序开始 -->
+    <!-- <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script> -->
+    <!-- 图片拖动排序结束 -->
+</head>
+<body style="background-color:#eee;">
+  <!--弹出层数据链接开始-->
+  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+  </div> -->
+  <!--弹出层数据链接结束-->
+
+
+  	<div id="content-header">
+        <div id="breadcrumb">
+        	<img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+          <a href="products.html">珠宝图鉴后台管理系统</a>
+          <img src="../img/breadcrumb.png"/>
+        	<span class="font16">首页定制</span>
+          <img src="../img/breadcrumb.png"/>
+        	<span class="font16">推广展示</span>
+        </div>
+    </div>
+
+    <div class="category_edit_div">
+      <div class="category_edit_div_left">
+          <div class="slide_view">
+                <div class="top_font">推广展示顺序</div>
+                <button id="create_category" onclick="add_category_btn()">+ 添加首页推广展示</button>
+                <div class="wrap-menu">
+                  <ul id="list_area_new">
+                  </ul>
+                    <input name="list1SortOrder" type="hidden" />
+
+                  <ul id="category_list_ul" style="background-color:#eee;">
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="category_edit_div_right">
+              <div class="content">
+                <div class="top_font">
+                		类别产品编辑<span id="category_edit_text"></span>
+                    <span style="float:right;margin-right:20px;">
+                      首页展示数量:
+    	                <select name="Select1" id="select_num" onchange="select_onclick()">
+            						<option>2</option>
+            						<option selected="">4</option>
+                        <option>6</option>
+            					</select>
+                    </span>
+        				</div>
+                <div style="border: none; width:100%">
+                  <table>
+                    <thead>
+                      <tr>
+                        <td>匹配图</td><td>产品</td><td>产品编号</td><td>操作</td>
+                      </tr>
+                    </thead>
+                    <tbody id="promotion_display_list">
+                    </tbody>
+                  </table>
+                  <ul class="pagination"></ul>
+                </div>
+              </div>
+              <!--弹出层数据链接开始-->
+              <!--模态框（Modal）-->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+              	<div class="modal-dialog">
+                  	<div class="modal-content">
+                        <div class="modal-header active">
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                  </div>
+             	</div>
+              <!--弹出层数据链接结束-->
+              <div id="cover" class="cover"></div>
+
+              <div id="oncover" class="oncover" style="margin:50px auto;min-height:200px;width:600px">
+                <form name="create_promotion_category" style="margin:0;">
+                  <div class="pop_window_top">添加首页推广名称:</div>
+                  <div id="pro_id_div"></div>
+                    <!-- <input type="text" name="category_name" placeholder="请输入首页推广名称..."> -->
+                </form>
+                <hr style="margin:5px;"/>
+                <div class="pop_window_bottom">
+                    <button id="btn_add_category_submit" class="btn btn-primary" onclick="add_categorydisplay_submit()">提交</button>
+                    <button id="btn_add_category_cancel" class="btn btn-default" onclick="add_categorydisplay_cancel()">取消</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>

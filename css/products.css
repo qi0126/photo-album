@@ -1,0 +1,250 @@
+.content {
+	font-size:16px;
+	background-color:#eee;
+}
+.content p {
+	}
+#breadcrumb {
+	background-color: #fff;
+	border-bottom: 1px solid #e3ebed;
+	height: 38px;
+	line-height: 38px;
+	padding-left: 10px;
+	margin-bottom:20px;
+	font-size:16px;
+}
+.control_panel {
+	width:97%;
+	margin:0 auto;
+	background-color:#FFF;
+	border-radius: 3px;
+	border:1px solid #ccc;
+	padding:10px;
+}
+.control_panel button {
+	font-size:16px;
+}
+table {
+	width:100%;
+}
+table thead tr {
+	background-color:#2b6aa2;
+	color:#FFF;
+}
+table tr {
+	border-bottom:1px solid #ddd;
+}
+table tr td {
+	text-align: center;
+	padding: .5em 1em;
+	min-height: 100px;
+}
+.content .pagination {
+	position: relative;
+	left: 35px;
+	bottom: 0px;
+}
+.cover {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	filter: alpha(opacity=90);
+	background-color: #777;
+	z-index: 1002;
+	display: none;
+	-moz-opacity: 0.9;
+	opacity: 0.9;
+}
+.oncover {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	z-index: 1004;
+	display: none;
+	text-align:center;
+}
+.oncover button {
+	}
+.searchAboutOnOffLine {
+	background-color:#2b6aa2;
+	color:#FFF;
+	border:0px;
+	font-size:16px;
+	text-align:center;
+	width:130px;
+}
+.wrap-menu {
+	overflow:auto;
+	background:#F6F6F6;
+	font:16px/31px 'Microsoft Yahei';
+}
+.wrap-menu ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+	background-color:#2e363f;
+}
+.wrap-menu ul li {
+	text-indent:1em;
+	border-top:1px #fff solid;
+	background-color: #2b6aa2;
+}
+.wrap-menu ul li li {
+	text-indent: 0;
+}
+.wrap-menu ul li h2 {
+	cursor:pointer;
+	height:40;
+	line-height:40px;
+	width:100%;
+	margin:0 0 1px 0;
+	font:16px/31px 'Microsoft Yahei';
+	color:#fff;
+	background:#2b6aa2;
+	padding: .1em 0;
+}
+.wrap-menu ul li a {
+	display: inline-block;
+	width:83%;
+	color:#fff;
+	text-decoration:none;
+	line-height: 2.5em;
+	box-sizing: border-box;
+	cursor: pointer;
+	padding-left:61px;
+	font-size:16px;
+}
+.wrap-menu ul li li span {
+	display: inline-block;
+	width:19px;
+	box-sizing: border-box;
+	cursor: pointer;
+	color: #2e363f;
+	background-color:#FFF;
+	font-weight: bold;
+	text-align: center;
+	border-radius:50%;
+}
+.wrap-menu ul li img {
+	margin-right:10px;
+	margin-left:-17px;
+	margin-top:9px;
+	width:7px;
+	height:7px;
+	background:url(../images/arrow.gif) no-repeat;
+	border:none;
+}
+.wrap-menu ul li img.unfold {
+	background-position: 0 -9px;
+}
+.pop_window {
+	width:800px;
+	min-height:200px;
+	margin: 50px auto;
+	background-color:#fff;
+	font-weight:bold;
+	border-radius: 6px;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+}
+.pop_window_top {
+	height:53px;
+	background-color:#2b6aa2;
+	color:#fff;
+	line-height:53px;
+	font-size:16px;
+	font-weight:bold;
+	/*padding-left: 20px;*/
+	text-align: center;
+}
+.pop_window_center {
+	min-height:68px;
+	font-size:18px;
+	line-height:42px;
+	text-align: left;
+	padding: 20px;
+	max-height: 500px;
+	overflow: auto;
+	width: 100%;
+}
+.pop_window_bottom {
+	height:50px;
+	font-size:16px;
+	text-align:right;
+	line-height:50px;
+	padding-right:20px;
+	padding-bottom:10px;
+}
+.closewin {
+	float:right;
+	background:none;
+	margin-top:5px;
+	color:#FFF;
+	font-size:16px;
+	border:0;
+}
+.pagecss {
+	color:green;
+	font-size:20px;
+	border:1px solid #f0f0f0;
+	padding:5px;
+}
+.lev-1 li {
+	background-color: #2e363f;
+}
+/*弹出*/
+
+.footer_flex li span {
+	display: none;
+	color: #fff;
+	font-size: 13px;
+	line-height: 45px;
+}
+.footer_flex li .img-n {
+	padding-top: 10px;
+}
+.footer_flex {
+	color:#000;
+	margin-left: 56px;
+	}
+.footer_flex li {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	margin: 0px 14px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	z-index: 10;
+}
+/*button*/
+
+.footer_flex li .flex-footera {
+	width: 400px;
+	height: 124px;
+	position: absolute;
+	left: -170px;
+	top: 25px;
+	text-align: center;
+	padding-top: 15px;
+	background-color:#fff;
+	border:3px solid #0099cc;
+	display: block;
+	border-radius: 8px;
+	box-shadow: 2px 2px 8px #d8d8d8;
+}
+ul, ol, menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#fenpage_inputtext{
+	text-align: center;
+}
+.progress{
+	width:550px;
+	height: 45px;
+	margin: 30px auto;
+}

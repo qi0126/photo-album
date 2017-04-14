@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>轮播首页</title>
+    <link rel="stylesheet" href="../css/carousel.css">
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/jquery.datetimepicker.css"/>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/promotion_startsetting.js"></script>
+    <link rel="stylesheet" href="../css/promotion_startsetting.css">
+</head>
+<body style="background-color:#eee;">
+  	<div id="content-header">
+        <div id="breadcrumb">
+        	<img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+          <a href="products.html">珠宝图鉴后台管理系统</a>
+          <img src="../img/breadcrumb.png"/>
+        	<span class="font16">首页定制</span>
+          <img src="../img/breadcrumb.png"/>
+        	<span class="font16">启动推广设置</span>
+        </div>
+    </div>
+    <div>
+      <div class="firstpage_img_table_display" style="height:780px;">
+        <div class="btn btn-info btn-lg">启动推广设置</div>
+        <span style="float:right;width:300px">
+        	开启 <input name="Checkbox1" type="checkbox" id="startup_istf_checkout" onclick="startup_istf(this);" checked="checked"/>
+        </span>
+        <!--快捷推广列表-->
+        <div id="second_imglist" style="margin-top:20px;">
+          <div class="startsetting-div-left">
+            <div><img src="../img/startimg.png" class="startsetting-img" id="startsetting-img" height="415px" width="273px"></img></div>
+            <div>
+              <input type="button" value="点击上传自定义图标" size="30" onclick="upload.click()" class="btn btn-info btn-lg"/>
+              <input type="file" id="upload" onchange="uploadFile()" name="f" style="position:absolute; filter:alpha(opacity=0); opacity:0; width:30px; " size="1" />
+              <br/>
+              提示：安卓端1440×2560 苹果端1242*2208
+            </div>
+          </div>
+          <div class="startsetting-div-right">
+            <div>
+              倒计时时间
+                <select name="second_select" onchange="second_select_num(this)" id="promo_select">
+                    <option value="2" id="secondnum_2">2秒</option>
+                    <option value="3" id="secondnum_3">3秒</option>
+                    <option value="4" id="secondnum_4">4秒</option>
+                </select>
+            </div>
+            <div>
+              设置推广途径
+              <select name="promo_settingselect" onchange="promo_settingselect_fun(this)" id="promo_settingselect">
+                  <option value="1" id="promo_settingselect_1">推广类别</option>
+                  <option value="2" id="promo_settingselect_2">单个产品</option>
+                  <option value="3" id="promo_settingselect_3">网 址</option>
+              </select>
+              <hr/>
+              <div id="promo_settingselect_1_div">
+                <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                  选择推广类别
+                </button>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content" style="background-color:#eee;">
+                            <div class="modal-header active modal-title">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color:#fff;">&times;</button>
+                                <h4 class="modal-title" id="myModalLable">选择推广类别</h4>
+                            </div>
+                            <div class="modal-body" id="selected_promotion_body" style="line-height:44px;max-height:500px;overFlow:auto;"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary btn-lg" onclick="selected_promotion_submit(1)">提交更改推广类别</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="selected_promotion_div">
+                  已选择的推广类别:<br/>
+                  <span id="selected_promotion">空</span>
+                </div>
+              </div>
+              <div id="promo_settingselect_2_div" style="display:none;">
+                <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" >
+                  选择单个产品
+                </button>
+                <!--模态框（Modal）-->
+                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+                  <div class="modal-dialog" style="width:1140px;">
+                      <div class="modal-content" style="background-color:#eee;">
+                            <div class="modal-header active modal-title" style="background-color:#eee;color:#000;">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLable" style="background-color:#eee;color:#000;">选择单个产品<input type="text" onkeyup="search_pro_input(this)" placeholder="填写需要查找的产品或者编号" style="font-size:18px;width:300px;"></input></h4>
+                            </div>
+                            <div class="modal-body" id='onepro-div'>产品为空！</div>
+                            <div class="modal-footer" style="border-top:0;">
+                              <div style="float:left; text-align:right;width:100%;margin-top:-27px">
+                                <hr/>
+                                <div style="float:left;width:70%" id="fengpage_div">
+                                </div>
+                                <div style="float:right;width:30%;text-align:right;">
+                                  <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">关闭</button>
+                                  <button type="button" class="btn btn-primary btn-lg" onclick="startup_onepro_fun(2)">提交更改产品</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="selected_promotion_div">
+                  已选择的产品:<br/>
+                  <img src="../img/startimg-sm.png" class="startsetting-smimg" id="startsetting-smimg" style="width:150px;height:100px;"></img><br/>
+                  <span id="selected_product">空</span>
+                </div>
+              </div>
+              <div id="promo_settingselect_3_div" style="display:none;">
+                  <input id="input_setting_url" placeholder="输入需要跳转的网址" onchange="input_setting_url_fun(3)" style="vertical-align: top;"></input>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
