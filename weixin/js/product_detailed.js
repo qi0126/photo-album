@@ -1,7 +1,7 @@
 $(function(){
   var a = window.location.hash;
   var t = a.split("#")[1];
-  t = t.split("?appinstall=0")[0];
+  t = t.split("?appinstall=0")[0]; 
   // console.log(t);
   product_list(t);
 

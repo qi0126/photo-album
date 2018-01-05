@@ -1,9 +1,14 @@
 $(function(){
   var u = navigator.userAgent, app = navigator.appVersion;
 
+  var post_data = new FormData();
+  post_data.append('type', 1);
+  http.postAjax_clean("/photo-album/mobileUpdate/topVersion", post_data,function(data) {
+    // console.log(data);
+  });
+
   //android终端或者uc浏览器
   if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
-
    $("#app01").show();
    $("#app02").hide();
   }

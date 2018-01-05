@@ -1,0 +1,28 @@
+.team_add_input{
+	height: 35px;
+	background-color: #428bca;
+	color:#fff;
+}
+#saleman_topdiv{
+	background-color:gray;
+	color:#fff;
+	height:50px;
+	padding-top:10px;
+	margin-top:10px;
+}
+#team_name_input{
+	text-align: center;
+	color:#000;
+}
+#customer_list{
+	overFlow:auto;
+	height:650px;
+}
+#sale_man_list{
+	overFlow:auto;
+	max-height:600px;
+}
+.saleman_class{
+	float:left;
+	margin:18px 0 0 30px;
+}

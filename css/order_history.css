@@ -1,0 +1,175 @@
+body {
+	font-family:Microsoft YaHei;
+	font-size: 16px;
+}
+.btn{
+	font-size:16px;
+}
+.order_table{
+	width: 100%;
+}
+.order_table tr td{
+	padding: 8px;
+}
+.order_table_c{
+	width:100%;
+	max-height: 611px;
+	overflow-y: auto;
+}
+.order_table_c a{
+	color:#333;
+}
+.tdclass{
+	padding:8px;
+	height:40px;
+}
+.backup_note_class{
+	padding:3px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	width:100%;
+	max-width: 320px;
+	line-height: 25px;
+	word-break:break-all;
+}
+.title_text{
+	font-size: 15px;
+	font-weight: bold;
+}
+.backup_css{
+	float:left;
+	width:33%;
+	border: 1px solid #f0f0f0;
+	background-color: #ccc;
+	font-size: 16px;
+}
+.backup_sub_css{
+	background-color: #fff;
+	padding:10px;
+	line-height: 40px;
+}
+
+#breadcrumb {
+    background-color: #fff;
+    border-bottom: 1px solid #e3ebed;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 10px;
+	margin-bottom:20px;
+	font-size:16px;
+}
+.container1{
+	width:96%;
+	max-width: 1200px;
+	margin: 20px auto;
+	background-color: #fff;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	padding: 20px;
+	line-height: 50px;
+	font-size:18px;
+	min-height: 500px;
+	padding-left: 50px
+}
+.foot_input{
+	width:300px;
+	height: 40px;
+}
+.orderlist_table{
+	width:100%;
+}
+.orderlist_table th{
+	text-align: center;
+	font-size: 16px;
+	height:40px;
+	color:#666;
+}
+.orderlist_table td{
+	text-align: center;
+	font-size: 16px;
+	height:40px;
+}
+
+
+.shipment_list_table{
+	width:100%;
+}
+.shipment_list_table th{
+	text-align: center;
+	font-size: 16px;
+	height:40px;
+	color:#666;
+	background-color: #e9eff4;
+}
+.shipment_list_table td{
+	text-align: center;
+	font-size: 14px;
+	height:40px;
+}
+
+.shipment_list_table input{
+	text-align: center;
+	font-size: 14px;
+	width:70px;
+	height:30px;
+}
+.modal-header-class{
+	height: 53px;
+	background-color: #2b6aa2;
+	color: #fff;
+	line-height: 53px;
+	font-size: 16px;
+	font-weight: bold;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.del_div{
+	background-color: #fff;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	padding:10px;
+}
+.panel-title a {
+	color:#fff;
+}
+
+.panel-info{
+	margin:10px 0 10px 0;
+	border-color:#ddd;
+}
+.tabletop{
+	text-align:center;
+	font-size:16px;
+	background-color:#e9eff4;
+	border: 1px solid #ddd;
+	padding:5px;
+	padding-top:10px;
+	font-weight: bold;
+	height: 50px;
+}
+
+.proname_display{
+	float:right;
+	width:55%;
+	margin-top:25px;
+	line-height: 30px;
+}
+#search_table{
+	font-size:16px;
+	height:150px;
+	background-color: #fff;
+	border:1px solid #ccc;
+	border-radius: 3px;
+	width:100%;
+}
+#search_table td{
+	padding:10px;
+	padding-left:20px;
+}
+.search_table_lefttd{
+	text-align: right;
+	width:150px;
+}
+#search_txt_input{
+	width:366px;
+}

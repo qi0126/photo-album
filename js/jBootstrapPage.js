@@ -31,7 +31,7 @@
 
             	if(c.maxPages < 1) return;
 
-            	$this.append('<li class="disabled"><a class="first" href="#">首 页</a></li>');
+            	$this.append('<li class="disabled"><a class="first" style="display:none" href="#">首 页</a></li>');
             	$this.append('<li class="disabled"><a class="pre" href="#">上一页</a></li>');
 
         		var pageCount = c.maxPages < c.maxPageButton ? c.maxPages : c.maxPageButton;
@@ -43,11 +43,11 @@
           			$this.append('<li class="page" pNum="'+pNum+'"><a href="#" page="'+index+'">'+index+'</a></li>');
           		}
               $this.append('<li class="disabled" id="next"><a class="next" href="#">下一页</a></li>');
-              $this.append('<li id="last"><a class="last" href="#">末 页</a></li>');
+              $this.append('<li id="last" style="display:none"><a class="last" href="#">末 页</a></li>');
             }else{
                 $this.append('<li class="page" pNum="1"><a href="#" page="1">1</a></li>');
               $this.append('<li class="disabled" id="next"><a class="next" href="#">下一页</a></li>');
-              $this.append('<li id="last"><a class="last" href="#">末 页</a></li>');
+              $this.append('<li id="last" style="display:none"><a class="last" href="#">末 页</a></li>');
               $("#last").toggleClass(" ");
             }
 

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>销售区域设置</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link href="../css/imgcenter.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/new/bootstrap.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/sale_area_setting.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+    <style>
+      .panel-heading {
+        background-color: #428bca;
+        color:#fff;
+      }
+      .btn {
+          font-size: 16px;
+          margin-top: 0px;
+      }
+    </style>
+
+</head>
+<body style="background-color:#eee;">
+    <div id="breadcrumb">
+        <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+        <a href="products.html">尚臻品后台管理系统</a>
+        <img src="../img/breadcrumb.png"/>
+        <span class="font16">销售区域设置</span>
+    </div>
+    <div>
+    	<table class="imgcentertab" cellpadding="0" border="1"  cellspacing="10">
+          <tr class="imgctabtr" bgcolor="#2b6aa2" style="">
+            <td width="20%">销售区域列表</td>
+            <td width="80%">销售区域详细信息</td>
+          </tr>
+          <tr style="">
+            <td valign="top">
+              <div>
+                <input id="area_search_input" placeholder="请输入团队名称" style="height:38px"></input>
+                <button id="area_search_btn" class="btn btn-info" onclick="area_search_btn()">搜 索</button>
+              </div>
+            	 <div style="margin-top:10px">
+                	<button id="team_add_btn" class="btn btn-primary" onclick="team_add_btn()">创建新区域</button>
+                </div>
+                <div style="margin-top:10px;">
+              			<div class="panel-group" id="area_leftmenu_list">
+              			</div>
+              		</div>
+            </td>
+            <td valign="top">
+            	<div style="text-align:left;">
+                区域名称:<span id="areaName_display_span"></span>
+                <div style="width:300px;float:right;" id="area_save_div">
+                  <button id="area_save_btn" class="btn btn-primary" onclick="area_save_btn()">保 存</button>
+                  <button id="area_cancel_btn" class="btn btn-primary" onclick="area_cancel_btn()">取 消</button>
+                </div>
+              </div>
+              <hr/>
+            	<table class="table2_right_css" style="width:100%;">
+                	<tr>
+                    	<td>
+                        <div class="container" style="width:100%;padding:0;">
+                          <!-- <div id="province_selected_div">
+                            已选区域：
+                            <span id="province_selected_span">暂无选择区域.</span>
+                          </div>
+                          <div>
+                            <button type="button" class="btn btn-primary" onclick="city_submit_list()">提交按钮</button>
+                          </div> -->
+                          <div>已选择区域</div>
+                          <div class="panel-group" id="accordion">
+                          </div>
+                          <div id="noselect_area_bigdiv">
+                            <div>未选择区域</div>
+                            <div class="panel-group" id="noselect_area_div">
+                            </div>
+                          <div>
+                        </div>
+                    	</td>
+                    </tr>
+                	<tr>
+                    	<td></td>
+                    </tr>
+                </table>
+                <div style="width:100%;float:left;" id="area_save_div">
+                	<button id="area_save_btn" class="btn btn-primary" onclick="area_save_btn()">保 存</button>
+                  <button id="area_cancel_btn" class="btn btn-primary" onclick="area_cancel_btn()">取 消</button>
+                </div>
+            </td>
+          </tr>
+        </table>
+    </div>
+</body>
+</html>

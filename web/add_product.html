@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>产品编辑</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/edit_product.css">
+  <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+  <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="../js/vue.min.js"></script>
+  <!-- 图片拖动排序开始 -->
+  <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script>
+  <!-- 图片拖动排序结束 -->
+  <script type="text/javascript" src="../js/http.js"></script>
+  <script type="text/javascript" src="../js/add_product.js"></script>
+</head>
+
+<body style="background:url(../images/bg.png);">
+  <div class="editproduct">
+    <div id="breadcrumb">
+      <img src="../images/home.png" width="18px" style=" margin-top:-4px" />
+      <a href="products.html">尚臻品后台管理系统</a>
+      <img src="../img/breadcrumb.png" />
+      <span class="font16">产品管理</span>
+      <img src="../img/breadcrumb.png" />
+      <span class="font16">产品编辑</span>
+    </div>
+    <div class="editcont">
+      <form name="edit_product" id="edit_product">
+        <fieldset class="editfieldset">
+          <div class="editlegend">产品图片</div>
+          <div id="img_display_list">
+            <div>
+              <button type="button" id="imgUpload_btn" class="btn btn-primary" onclick="img_upload_btn.click()">图片上传</button>
+              <input type="file" id="img_upload_btn" multiple onchange="uploadFile()" style="position:absolute; filter:alpha(opacity=0); opacity:0; width:30px; "
+                size="1" />
+              <button type="button" id="imgdel_btn" class="btn btn-warning" onclick="batchdel()">批量删除</button>
+            </div>
+            <ul id="img_list" data-listidx="0">
+              <li>还没有选择产品</li>
+            </ul>
+            <ul id="img_list_null" data-listidx="0" style="display:none;">
+              <li>还没有选择产品</li>
+            </ul>
+          </div>
+        </fieldset>
+        <fieldset class="editfieldset">
+          <div class="editlegend">产品基本信息</div>
+          <!-- 产品时间date和产品ID，隐藏显示 -->
+          <div id="pro_id" style="display:none;"></div>
+          <div id="suppliernumber_div" style="display:none;"></div>
+          <!-- 产品时间date和产品ID，隐藏显示 -->
+
+          <table id="prolist" style="width: 100%" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="lefttd">产品品类:</td>
+              <td colspan="3"><select id="category" name="category"></select><span style="color:red;font-size:16px;">*</span></td>
+            </tr>
+            <tr>
+              <td class="lefttd">产品品名:</td>
+              <td width="45%"><input type="text" name="name" style="width:90%;" v-model="name"><span style="color:red;font-size:16px;">*</span></td>
+              <td class="lefttd"></td>
+              <td width="45%"></td>
+            </tr>
+            <tr>
+              <td class="lefttd">产品编号:</td>
+              <td><input type="text" name="number" style="width:90%;" v-model="number"> <span style="color:red;font-size:16px;">*</span></td>
+              <td class="lefttd">供应商编号:</td>
+              <td><input type="text" name="suppliernumber" style="width:85%;"></td>
+            </tr>
+            <tr>
+              <td class="lefttd" valign="top">产品描述:</td>
+              <td colspan="3">
+                  <textarea name="detil" rows="5" cols="120" placeholder="填写产品卖点、产品寓意、产品文化由来" style="width:93%;line-height:30px" onkeypress="getKey(this);"></textarea>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        <fieldset class="editfieldset">
+					<div class="editlegend">产品属性</div>
+					<div class="col-sm-6">
+						<span class="leftm"><label for="condition" class="leftfont">产品材质:</label></span>
+						<!-- <input name="material" style="width:78%;"></input> -->
+						<div class="tags" tabindex="1">
+							<span name="material"></span>
+							<input type="text" placeholder="新增产品材质" class="tags_enter" onblur="input_blur(this)" onkeydown="keydown_fun(this,event)"/>
+						</div>
+						<span style="color:red;font-size:16px;">*</span>
+						<br/><br/>
+						<span class="leftm"><label for="condition" class="leftfont">产品成色:</label></span>
+						<!-- <input name="colour" style="width:78%;"></input> -->
+						<div class="tags" tabindex="1">
+							<span name="colour"></span>
+							<input type="text" placeholder="新增产品成色" class="tags_enter" onblur="input_blur(this)" onkeydown="keydown_fun(this,event)"/>
+						</div>
+						<span class="redfont">*</span>
+						<br/><br/>
+						<span class="leftm"><label for="shapes" class="leftfont">适合人群:</label></span>
+						<input name="crowd" class="tags"></input>
+					</div>
+					<div class="col-sm-6">
+						<span class="leftm"><label for="kuanshi">外观形态:</label></span>
+						<!-- <input name="shapes" style="width:78%;"></input> -->
+						<div class="tags" tabindex="1">
+							<span name="shapes"></span>
+							<input type="text" placeholder="新增外观形态" class="tags_enter" onblur="input_blur(this)" onkeydown="keydown_fun(this,event)"/>
+						</div>
+						<span style="color:red;font-size:16px;">*</span>
+						<br/><br/>
+						<span class="leftm"><label for="kuanshi">表面工艺:</label></span>
+						<!-- <input name="craft" style="width:78%;"></input> -->
+						<div class="tags" tabindex="1">
+							<span name="craft"></span>
+							<input type="text" placeholder="新增表面工艺" class="tags_enter" onblur="input_blur(this)" onkeydown="keydown_fun(this,event)"/>
+						</div>
+						<span style="color:red;font-size:16px;">*</span>
+						<br/><br/>
+						<span class="leftm"><label for="makeCraft">生产工艺:</label></span>
+						<!-- <input name="makeCraft" style="width:78%;"></input> -->
+						<div class="tags" tabindex="1">
+							<span name="makeCraft"></span>
+							<input type="text" placeholder="新增生产工艺" class="tags_enter" onblur="input_blur(this)" onkeydown="keydown_fun(this,event)"/>
+						</div>
+						<span style="color:red;font-size:16px;">*</span>
+					</div>
+				</fieldset>
+        <fieldset class="editfieldset">
+          <div class="editlegend">产品规格</div>
+          <table id="addrowtable" class="addrowtable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </fieldset>
+        <fieldset class="editfieldset">
+          <div class="editlegend">产品推广</div>
+          <div id="selected_promotion_div"></div>
+        </fieldset>
+      </form>
+      <hr/>
+      <div style="width:100%; text-align:center;">
+        <button id="newpro_btn_submit" onclick="newpro_btn_submit()" class="submitbutton btn btn-primary" style="line-height:37px;font-size:16px;">添加新产品</button>
+        <button id="btn_submit" class="submitbutton btn btn-info" style="line-height:37px;font-size:16px;display:none;">确认修改</button>        <a id="return_url_a" type="button" class="submitbutton btn btn-warning" style="line-height:37px;font-size:16px;display:none">取消并返回产品库</a>
+      </div>
+      <div style="height:50px;"></div>
+    </div>
+  </div>
+</body>
+
+</html>

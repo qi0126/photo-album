@@ -1,21 +1,27 @@
 ﻿<!DOCTYPE html>
-<html style="background-color:#fff">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>轮播首页</title>
     <link rel="stylesheet" href="../css/new/bootstrap.min.css">
     <link rel="stylesheet" href="../css/jquery.datetimepicker.css"/>
-    <link rel="stylesheet" href="../css/products.css">
-    <link rel="stylesheet" href="../css/promotion_category.css">
+    <link rel="stylesheet" href="../css/cao.css">
+    <link rel="stylesheet" href="../css/promotion_display.css">
     <script type="text/javascript" src="../js/new/jquery.min.js"></script>
     <script src="../js/new/bootstrap.min.js"></script>
     <script src="../js/http.js"></script>
     <script src="../js/promotion_display.js"></script>
     <!-- 图片拖动排序开始 -->
-    <!-- <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script> -->
+    <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script>
     <!-- 图片拖动排序结束 -->
+    <style>
+    .btn{
+      font-size:16px;
+    }
+    </style>
+
 </head>
-<body style="background-color:#eee;">
+<body style="background:#eee url(../images/bg.png) left top repeat;">
   <!--弹出层数据链接开始-->
   <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
   </div> -->
@@ -25,7 +31,7 @@
   	<div id="content-header">
         <div id="breadcrumb">
         	<img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
-          <a href="products.html">珠宝图鉴后台管理系统</a>
+          <a href="products.html">尚臻品后台管理系统</a>
           <img src="../img/breadcrumb.png"/>
         	<span class="font16">首页定制</span>
           <img src="../img/breadcrumb.png"/>
@@ -49,7 +55,7 @@
             </div>
         </div>
         <div class="category_edit_div_right">
-              <div class="content">
+              <div class="content" style="background:#fff">
                 <div class="top_font">
                 		类别产品编辑<span id="category_edit_text"></span>
                     <span style="float:right;margin-right:20px;">
@@ -89,12 +95,10 @@
              	</div>
               <!--弹出层数据链接结束-->
               <div id="cover" class="cover"></div>
-
               <div id="oncover" class="oncover" style="margin:50px auto;min-height:200px;width:600px">
                 <form name="create_promotion_category" style="margin:0;">
                   <div class="pop_window_top">添加首页推广名称:</div>
                   <div id="pro_id_div"></div>
-                    <!-- <input type="text" name="category_name" placeholder="请输入首页推广名称..."> -->
                 </form>
                 <hr style="margin:5px;"/>
                 <div class="pop_window_bottom">
@@ -104,8 +108,5 @@
               </div>
         </div>
     </div>
-    <script type="text/javascript">
-
-    </script>
 </body>
 </html>

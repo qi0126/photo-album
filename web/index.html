@@ -1,0 +1,225 @@
+﻿<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>尚臻品后台管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="../css/matrix-style.css" />
+    <link rel="stylesheet" href="../css/matrix-media.css" />
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="shortcut icon" href="../img/ico.ico"/>
+    <style type="text/css">
+      .panel-group .panel + .panel {
+        margin: 0;
+      }
+      .panel-group .panel-heading {
+        border-bottom: 1px solid #fff;
+        border-radius: 3px;
+      }
+      .panel-group .panel-heading:hover {
+        background-color:#27a9e3;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="header"><h1>尚臻品后台管理系统</h1></div>
+
+    <div id="user-nav" class="navbar navbar-inverse" style="right: 0px; top: 0px">
+      <ul class="nav">
+        <li class="dropdown" id="profile-messages">
+          <a title="" href="#">
+            <i class="icon icon-user"></i>&nbsp;
+            <span class="text" id="loginman_text"></span>&nbsp;</a></li>
+        <li class="">
+          <a title="" href="/photo-album/logout">
+            <i class="icon icon-share-alt"></i>
+            <span class="text">&nbsp;退出系统</span></a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="sidebar">
+      <div id="newmenu"></div>
+
+      <div style="display: none;">
+        <ul>
+          <li class="submenu">
+            <a href="#">
+              <i class="icon icon-table"></i>
+              <span>产品管理</span>
+              <span class="label label-important">2</span></a>
+              <!-- <a class="menu_a" link="products.html"><i class="icon icon-table"></i>产品管理</a> -->
+              <ul>
+                <li>
+                  <a class="menu_a" link="products.html"><i class="icon icon-caret-right"></i>产品库</a>
+                </li>
+                <li>
+                  <a class="menu_a" link="edit_product.html?pro_tmpid=null"><i class="icon icon-caret-right"></i>产品编辑</a>
+                </li>
+                <!-- <li>
+                  <a class="menu_a" link="product_category_mgr.html"><i class="icon icon-caret-right"></i>产品分类管理</a>
+                </li> -->
+              </ul>
+          </li>
+          <li>
+            <a class="menu_a" link="promotion_category.html"><i class="icon icon-bullhorn"></i>推广类别</a>
+          </li>
+          <li>
+            <a class="menu_a" link="img-center.html"><i class="icon icon-camera-retro"></i>图片中心</a>
+          </li>
+          <li class="submenu">
+            <a href="#">
+              <i class="icon icon-cloud"></i>
+              <span>首页定制</span>
+              <span class="label label-important">5</span></a>
+              <ul>
+                <li>
+                  <a class="menu_a" link="promotion_highspeed.html"><i class="icon icon-caret-right"></i>快捷推广</a>
+                </li>
+                <li>
+                  <a class="menu_a" link="promotion_display.html"><i class="icon icon-caret-right"></i>推广展示</a>
+                </li>
+                <li>
+            		    <a class="menu_a" link="carousel.html"><i class="icon icon-caret-right"></i>首页轮播</a>
+                </li>
+                <li>
+            		    <a class="menu_a" link="pagefooter.html"><i class="icon icon-caret-right"></i>联系我们</a>
+                </li>
+                <li>
+                    <a class="menu_a" link="promotion_startsetting.html"><i class="icon icon-caret-right"></i>启动推广设置</a>
+                </li>
+              </ul>
+          </li>
+          <!-- <li>
+            <a class="menu_a" link="Permission_setting.html"><i class="icon icon-bullhorn"></i>权限设置</a>
+          </li> -->
+          <li class="submenu">
+            <a href="#">
+              <i class="icon icon-shopping-cart"></i>
+              <span>用户管理</span>
+              <span class="label label-important">1</span></a>
+              <ul>
+                <li>
+                  <a class="menu_a" link="user_manage.html"><i class="icon icon-caret-right"></i>用户管理</a>
+                </li>
+                <!-- <li>
+                  <a class="menu_a" link="user_list.html"><i class="icon icon-caret-right"></i>用户列表</a>
+                </li> -->
+              </ul>
+          </li>
+          <li class="submenu">
+            <a href="#">
+              <i class="icon icon-shopping-cart"></i>
+              <span>销售管理</span>
+              <span class="label label-important">4</span></a>
+              <ul>
+                <li>
+                  <a class="menu_a" link="position_setting.html"><i class="icon icon-caret-right"></i>职位设置</a>
+                </li>
+                <li>
+                  <a class="menu_a" link="sale_man_manage.html"><i class="icon icon-caret-right"></i>销售人员管理</a>
+                </li>
+                <li>
+                  <a class="menu_a" link="sale_team_manage.html"><i class="icon icon-caret-right"></i>销售团队管理</a>
+                </li>
+                <li>
+            		    <a class="menu_a" link="sale_area_setting.html"><i class="icon icon-caret-right"></i>销售区域设置</a>
+                </li>
+              </ul>
+          </li>
+          <li class="submenu">
+            <a class="menu_a" link="customer_manage.html"><i class="icon icon-group"></i>客户管理</a>
+          </li>
+           <!-- <li class="submenu" th:attr="style=${session.admin}">
+                <a href="#">
+                  <i class="icon icon-phone"></i>
+                  <span>系统管理</span>
+                  <span class="label label-important">2</span></a>
+                  <ul>
+                    <li>
+                      <a class="menu_a" link="Androidapp.html"><img src="img/androidico.png" style="width:13px;margin-top:-3px;"/>   安卓APP</a>
+                    </li>
+                    <li>
+                      <a class="menu_a" link="data_display.html"><i class="icon icon-bar-chart"></i>数据总览</a>
+                    </li>
+                    <li style="display:none">
+                      <a class="menu_a" link="IOSapp.html"><img src="img/appleappicon.png" style="width:13px;margin-top:-5px;"/> 苹果IOS APP</a>
+                    </li>
+                  </ul>
+            </li> -->
+            <!-- <li class="submenu">
+              <a class="menu_a" link="order_manage.html"><i class="icon icon-check"></i>订单管理</a>
+            </li> -->
+            <li class="submenu">
+              <a href="#">
+                <i class="icon icon-shopping-cart"></i>
+                <span>订单管理</span>
+                <span class="label label-important">3</span></a>
+                <ul>
+                  <li>
+                    <a class="menu_a" link="order_follow.html"><i class="icon icon-caret-right"></i>跟进订单</a>
+                  </li>
+                  <li>
+                    <a class="menu_a" link="order_assist.html"><i class="icon icon-caret-right"></i>协助订单</a>
+                  </li>
+                  <li>
+                    <a class="menu_a" link="order_history.html"><i class="icon icon-caret-right"></i>历史订单</a>
+                  </li>
+                </ul>
+            </li>
+            <!-- <li class="submenu">
+              <a class="menu_a" link="order_history.html"><i class="icon icon-check"></i>历史订单</a>
+            </li> -->
+            <li class="submenu">
+                 <a href="#">
+                   <i class="icon icon-phone"></i>
+                   <span>数据统计</span>
+                   <span class="label label-important">3</span></a>
+                   <ul>
+                     <li>
+                       <a class="menu_a" link="product_dimension.html"><i class="icon icon-caret-right"></i>产品维度</a>
+                     </li>
+                     <li>
+                       <a class="menu_a" link="customer_dimension.html"><i class="icon icon-caret-right"></i>客户维度</a>
+                     </li>
+                     <li>
+                       <a class="menu_a" link="console_state.html"><i class="icon icon-caret-right"></i>汇总报表</a>
+                     </li>
+                   </ul>
+             </li>
+             <li class="submenu">
+               <a class="menu_a" link="user_feedback.html"><i class="icon icon-check"></i>用户反馈</a>
+             </li>
+             <li class="submenu">
+               <a class="menu_a" link="company_manage.html"><i class="icon icon-check"></i>公司管理</a>
+             </li>
+             <li class="submenu">
+               <a class="menu_a" link="log_manage.html"><i class="icon icon-check"></i>日志管理</a>
+             </li>
+             <li class="submenu">
+               <a class="menu_a" link="app_manage.html"><i class="icon icon-check"></i>APP升级管理</a>
+             </li>
+
+
+        </ul>
+      </div>
+    </div>
+
+    <div id="content" style="height:100%">
+      <!-- <iframe src="products.html" id="iframe-main" frameborder='0' style="width:100%;min-height:96%;" name="iframe-main"></iframe> -->
+      <iframe src="" id="iframe-main" frameborder='0' style="width:100%;min-height:94%;" name="iframe-main"></iframe>
+    </div>
+    <script src="../js/excanvas.min.js"></script>
+    <script src="../js/new/jquery.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/jquery.ui.custom.js"></script>
+    <script src="../js/new/bootstrap.min.js"></script>
+    <script src="../js/matrix.js"></script>
+    <script src="../js/jsonlist.js"></script>
+  </body>
+</html>

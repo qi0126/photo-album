@@ -1,0 +1,89 @@
+body {
+	font-family:Microsoft YaHei;
+	list-style:none;
+}
+#breadcrumb {
+  background-color: #fff;
+  border-bottom: 1px solid #e3ebed;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 10px;
+	margin-bottom:20px;
+	font-size:16px;
+}
+.ccenter{
+	width:98%;
+	margin:0 auto;
+	background-color:#fff;
+	padding:10px;
+	border-radius: 3px;
+	border:1px solid #ccc;
+	font-size: 16px;
+}
+.colorful-tab-menu{
+	list-style:none;
+}
+.list-group-item {
+	cursor: pointer;
+	font-size: 16px;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+	border-color:#ddd;
+}
+.changecom_btn_bigdiv{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.btn-group{
+	text-align: center;
+	margin: 15px auto;
+}
+#list-group li{
+	text-align: center;
+}
+#btn-group-timeselect{
+	width:100%;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+	z-index: 0;
+}
+#btn-group-timeselect button{
+	font-size: 17px;
+	padding:10px;
+	width:16.7%;
+}
+#example1 th{
+	background-color: #428bca;
+	color:#fff;
+	text-align: center;
+}
+#example1 td{
+	text-align: center;
+	vertical-align:middle;
+}
+#selectedtime-div{
+	font-size: 17px;
+	text-align: center;
+
+}
+#selectedtime-td{
+	border-radius: 3px;
+	width:70%;
+	border: 1px solid #ccc;
+	padding:10px;
+	border-top:3px solid #ccc;
+	vertical-align:top;
+}
+.dropload-down{
+	position: absolute;
+}
+.select_week_div{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.monthbtn{
+	width:90px;
+}
+.some_class{
+	text-align: center;
+}

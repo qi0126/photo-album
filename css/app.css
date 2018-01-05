@@ -8,3 +8,14 @@ body {
 	margin:0px;
 	padding:0px;
 }
+.panel-heading {
+	background-color: #428bca;
+	color:#fff;
+}
+.btn{
+	font-size:16px;
+	margin-top: 5px;
+}
+#province_selected_div{
+	text-align: left;
+}

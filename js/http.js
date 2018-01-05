@@ -13,6 +13,26 @@ var http = {
 			}
 		});
 	},
+	//Ajax的post以json格式传递请求
+	postAjax_json_clean: function(url, post_data, cb){
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data: post_data,
+			async: true,
+			cache: false,
+			processData: false, //告诉jQuery不要去处理发送的数据
+			dataType:"json",
+			contentType:"application/json",
+			success: function(data, status, xhr){
+				cb(data);
+			},
+			error: function(data){
+				// alert('与服务器通信发生异常');
+			}
+		});
+	},
+
 	//Ajax的post请求方法
 	postAjax_clean: function(url, post_data, cb){
 		$.ajax({

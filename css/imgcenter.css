@@ -104,7 +104,7 @@ button .btn{
 }
 .imgcentertab {
 	width:98%;
-	margin:0 auto;
+	margin:20px auto;
 	background-color:#fff;
 	text-align:center;
 	font-size:18px;
@@ -112,6 +112,18 @@ button .btn{
 	border-radius: 3px;
 }
 .imgcentertab tr td {
+	border: 1px solid #f0f0f0;
+	padding:5px;
+}
+.imgcentertab1 {
+	width:98%;
+	margin:0 auto;
+	background-color:#fff;
+	font-size:18px;
+	border:1px solid #09C;
+	border-radius: 3px;
+}
+.imgcentertab1 tr td {
 	border: 1px solid #f0f0f0;
 	padding:5px;
 }
@@ -129,7 +141,7 @@ button .btn{
 	border-top-right-radius:7px;
 	background-color:#2b6aa2;
 	height:40px;
-	font-size:16px;
+	font-size:18px;
 }
 #listdiv {
 	width:100%;
@@ -239,6 +251,12 @@ button .btn{
 	height:50px;
 	line-height:50px;
 }
+#customer_list1 li {
+	list-style-type:none;
+	border:1px solid #f0f0f0;
+	height:50px;
+	line-height:50px;
+}
 #customer_follow_list li {
 	list-style-type:none;
 	border:1px solid #f0f0f0;
@@ -279,6 +297,9 @@ button .btn{
 	border-radius:5px;
 	margin:10px auto;
 }
+.createposition button{
+	font-size: 16px;
+}
 #Operationcenter-table-dd tr td{
 	padding:5px;
 }
@@ -293,9 +314,157 @@ button .btn{
 .select_userid_btn{
 	background: none;
 	border:0;
+	width:85%;
+	float:left;
 }
 
 .tdleft{
 	 text-align:left;
 	 padding-left:30px;
+}
+
+.table-striped thead{
+	background-color: #ccc;
+}
+.table-striped thead th{
+	text-align: center;
+	border: 1px solid #f0f0f0;
+}
+.customer_right_list{
+	float:right;
+	width:50%;
+	text-align: left;
+}
+
+.tdformat{
+	float:left;
+	margin:18px 0 0 30px;
+}
+.leader_btn{
+	margin-top: 2px;
+	float:right;
+	display:none;
+}
+#Operation-center .btn{
+	margin-bottom: 10px;
+}
+.select_text{
+	display:block;
+	padding-bottom: 5px;
+}
+.text_div{
+	font-size:17px;
+	margin-top: 10px;
+	margin-bottom: 17px;
+}
+.ztree li span{
+	font-size:17px;
+}
+.ztree li{
+	line-height: 25px;
+}
+.ztree li span.button.ico_docu {
+	vertical-align: middle;
+}
+.ztree li span.button.ico_open {
+	vertical-align: middle;
+}
+.ztree li span.button.switch {
+	height:27px;
+}
+.ztree li span.button.center_docu {
+	background-position: -55px -15px;
+}
+.ztree li span.button.bottom_docu {
+	background-position: -56px -32px;
+}
+.ztree li span.button.center_open {
+	background-position: -92px -14px;
+}
+.ztree li span.button.bottom_open {
+	background-position: -92px -32px;
+}
+.ztree li span.button.roots_open {
+	background-position: -92px 4px;
+}
+.ztree li span.button.center_close {
+	background-position: -74px -14px;
+}
+.ztree li span.button.ico_close {
+	vertical-align: middle;
+}
+.ztree li span.button.roots_close {
+	background-position: -74px 4px;
+}
+.ztree li span.button.bottom_close {
+	background-position: -74px -32px;
+}
+.ztree li span.button.center_docu {
+	background-position: -56px -15px;
+}
+.div.content_wrap {
+	width:80%;
+	overflow: auto;
+	height: 500px
+}
+#customer_list{
+	width:100%
+}
+#customer_list tr{
+	border:1px solid #f0f0f0;
+	height:50px;
+}
+#customer_list td{
+	border:0px;
+	min-height:50px;
+}
+#area_list{
+	width:100%;
+}
+#area_list td{
+	border:0;
+}
+#area_list tr{
+	border:1px solid #f0f0f0;
+}
+.select_class{
+	font-size:16px;
+	border:0;
+	width:100%;
+	background: none;
+	color:#333;
+}
+.selected_class{
+	background-color: #27a9e3;
+	color:#fff;
+}
+#team_add_btn{
+	width:100%;
+}
+.area_btn_class{
+	border:0px;
+	background: none;
+	width:60%;
+}
+.list-group-item{
+	cursor: pointer;
+}
+.subarea_click_class{
+	border:0px;
+	background: none;
+	width:80%;
+}
+.area_del_class{
+	color:#ff0000;
+	float:right;
+	width:38px;
+	cursor: pointer;
+}
+#accordion{
+	margin-top: 10px;
+}
+.accordion_display_class{
+	border:1px solid #eee;
+	padding:10px;
+	margin-top: 10px;
 }

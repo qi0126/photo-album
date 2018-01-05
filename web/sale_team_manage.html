@@ -6,14 +6,21 @@
     <link rel="stylesheet" href="../css/app.css">
     <link rel="stylesheet" href="../css/new/bootstrap.min.css">
     <link href="../css/imgcenter.css" rel="stylesheet" />
-    <script src="../js/jquery-1.10.2.min.js"></script>
+    <link href="../css/sale_team_manage.css" rel="stylesheet" />
+    <script src="../js/new/jquery.min.js"></script>
+    <script src="../js/new/bootstrap.min.js"></script>
     <script src="../js/http.js"></script>
-    <script src="../js/customer_manage.js"></script>
+    <script src="../js/sale_team_manage.js"></script>
+    <style>
+      .btn{
+        font-size:16px;
+      }
+    </style>
 </head>
-<body style="background-color:#eee;">
+<body style="background:#f5f5f5 url(../images/bg.png) left top repeat;">
     <div id="breadcrumb">
         <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
-        <a href="products.html">珠宝图鉴后台管理系统</a>
+        <a href="products.html">尚臻品后台管理系统</a>
         <img src="../img/breadcrumb.png"/>
         <span class="font16">销售管理</span>
         <img src="../img/breadcrumb.png"/>
@@ -27,92 +34,120 @@
           </tr>
           <tr style="">
             <td valign="top">
-            	<div>
+            	<!-- <div>
                 	<button  class="btn btn-primary">创建新团队</button>
                     <button class="btn btn-primary">删除团队</button>
-                </div>
-                <div>
-                	<input placeholder="请输入团队名称"></input>
+                </div> -->
+                <div id="team_search_div">
+                	<!-- <input id="team_search_input" placeholder="请输入团队名称" style="height:37px;"></input>
+                  <button type="button" class="btn btn-info" onclick="winonload()">搜索</button> -->
                 </div>
                 <div>
                 	<ul id="customer_list">
-                    	<li><input name="Fruit" type="checkbox" value="河北区" style="float:left;margin:18px 0 0 30px;"/>河北区</li>
+                    	<!-- <li><input name="Fruit" type="checkbox" value="河北区" style="float:left;margin:18px 0 0 30px;"/>河北区</li>
                     	<li><input name="Fruit" type="checkbox" value="北区" style="float:left;margin:18px 0 0 30px;"/>北区</li>
                     	<li><input name="Fruit" type="checkbox" value="南区" style="float:left;margin:18px 0 0 30px;"/>南区</li>
                     	<li><input name="Fruit" type="checkbox" value="中区" style="float:left;margin:18px 0 0 30px;"/>中区</li>
                     	<li><input name="Fruit" type="checkbox" value="西北区" style="float:left;margin:18px 0 0 30px;"/>西北区</li>
                     	<li><input name="Fruit" type="checkbox" value="成都分公司" style="float:left;margin:18px 0 0 30px;"/>成都分公司</li>
                     	<li><input name="Fruit" type="checkbox" value="河南分公司" style="float:left;margin:18px 0 0 30px;"/>河南分公司</li>
-                    	<li><input name="Fruit" type="checkbox" value="直营区" style="float:left;margin:18px 0 0 30px;"/>直营区</li>
+                    	<li><input name="Fruit" type="checkbox" value="直营区" style="float:left;margin:18px 0 0 30px;"/>直营区</li> -->
                     </ul>
                 </div>
                 <div>
-              	<button class="btn btn-primary">添加到团队</button>
-              </div>
+                	<button class="btn btn-primary" onclick="team_add_btn()">添加团队</button>
+                  <button class="btn btn-primary" onclick="team_save_btn()">保存</button>
+                  <button class="btn btn-primary" onclick="team_del_btn()">删除团队</button>
+                </div>
+                <div style="font-size:14px;">备注：原型没有上边三个按钮，只限测试使用！</div>
             </td>
             <td valign="top">
-            	<div style="text-align:left;">团队名称<input name="Text1" type="text" /></div>
-            	<table class="table2_right_css">
+            	<div style="text-align:left;">团队名称:
+                <span id="team_name_display">未取得团队</span>
+                <!-- <input id="team_name_input" name="Text1" type="text" onblur="teamname_change(this)"/> -->
+              </div>
+              <hr/>
+            	<table class="table2_right_css" style="width:100%;">
                 	<tr>
-                    	<td align="left"><b>业务团队</b></td>
-                    </tr>
-                	<tr>
-                    	<td>
-			            	<div>
-			            		<input placeholder="请输入客户名称"></input>
-			                	<button  class="btn btn-primary">添加新客户</button>
-			                    <button class="btn btn-primary">删除客户</button>
-			                </div>
-			                <div>
-			                	<ul id="customer_list">
-			                    	<li style="background-color:gray;color:#fff;"><input name="Fruit" type="checkbox" value="全选" style="float:left;margin:18px 0 0 30px;"/>
-									团队成员列表</li>
-			                    	<li><input name="Fruit" type="checkbox" value="客户A" style="float:left;margin:18px 0 0 30px;"/><span class="sale_team_people">
-									团队负责人</span>
-									A</li>
-			                    	<li><input name="Fruit" type="checkbox" value="客户B" style="float:left;margin:18px 0 0 30px;"/>B</li>
-			                    	<li><input name="Fruit" type="checkbox" value="客户C" style="float:left;margin:18px 0 0 30px;"/>C</li>
-			                    	<li><input name="Fruit" type="checkbox" value="客户D" style="float:left;margin:18px 0 0 30px;"/>D</li>
-			                    </ul>
-			                </div>
+                    <td>
+    			            	<div align="left">
+                          <span id="teamname_search_input_span">
+                            <input id="teamname_search_input" placeholder="请输入团队成员名称" onkeyup="" style="display:none; height:37px;"></input>
+                            <button type="button" class="btn btn-info" onclick="teamname_search()">搜索团队成员</button>
+                          </span>
+                              <!--按钮触发模态框-->
+                            <button id="teamman_addman_btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="teamman_add_list()">添加团队成员</button>
+                            <!--模态框（Modal）-->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+                              <div class="modal-dialog">
+                                  <div class="modal-content">
+                                        <div class="modal-header active" style="background-color:#428bca;color:#fff;">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLable">选择要加入的团队成员</h4>
+                                        </div>
+                                        <div>
+                                          <!-- <input id="sale_man_search" type="text" placeholder="请输入团队成员名称"></input>
+                                          <button class="btn btn-primary" onclick="teamman_add_list()">搜索</button> -->
+                                        </div>
+                                        <div class="modal-body" id="sale_man_list">
+                                        </div>
+                                        <div class="modal-footer">
+                                          <div style="float:left;width:200px;text-align:left;">
+                                            <input id="saleman_allselect_checkbox" name="Checkbox1" type="checkbox" onchange="saleman_allselect_checkbox(this)"/> 全选
+                                          </div>
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                          <button type="button" class="btn btn-primary" onclick="saleman_add_sub()">提交更改</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    			                    <button id="teamman_delman_btn" class="btn btn-primary" onclick="saleman_del_sub()">删除团队成员</button>
+    			                </div>
+    			                <div>
+                            <div id="saleman_topdiv">
+                              <input name="Fruit" type="checkbox" value="全选" style="float:left;margin:8px 0 0 30px;"/>
+                               团队成员列表
+                            </div>
+
+    			                	<ul id="customer_list1">
+
+    			                    	<!-- <li>
+                                  <input name="Fruit" type="checkbox" value="客户A" style="float:left;margin:18px 0 0 30px;"/>
+                                  <span class="sale_team_people">
+                                    团队负责人
+                                  </span>
+                                  <span class="customer_right_list">
+                                    客户A
+                                    <button class="btn btn-default leader_btn">设为负责人</button>
+                                  </span>
+                                </li>
+    			                    	<li>
+                                  <input name="Fruit" type="checkbox" value="客户B" style="float:left;margin:18px 0 0 30px;"/>
+                                  <span class="customer_right_list">
+                                    客户B
+                                    <button class="btn btn-default leader_btn">设为负责人</button>
+                                  </span>
+                                </li>
+    			                    	<li>
+                                  <input name="Fruit" type="checkbox" value="客户C" style="float:left;margin:18px 0 0 30px;"/>
+                                  <span class="customer_right_list">
+                                    客户C
+                                    <button class="btn btn-default leader_btn">设为负责人</button>
+                                  </span>
+                                </li>
+    			                    	<li>
+                                  <input name="Fruit" type="checkbox" value="客户D" style="float:left;margin:18px 0 0 30px;"/>
+                                  <span class="customer_right_list">
+                                    客户D
+                                    <button class="btn btn-default leader_btn">设为负责人</button>
+                                  </span>
+                                </li> -->
+    			                    </ul>
+    			                </div>
                     	</td>
                     </tr>
-                	<tr>
-                    	<td></td>
-                    </tr>
                 </table>
-<table class="table2_right_css">
-                	<tr>
-                    	<td align="left"><b>业务团队</b></td>
-                    </tr>
-                	<tr>
-                    	<td>
-			            	<div>
-			            		<input placeholder="请输入客户名称"></input>
-			                	<button  class="btn btn-primary">添加新客户</button>
-			                    <button class="btn btn-primary">删除客户</button>
-			                </div>
-			                <div>
-			                	<ul id="customer_list">
-			                    	<li style="background-color:gray;color:#fff;"><input name="Fruit" type="checkbox" value="全选" style="float:left;margin:18px 0 0 30px;"/>
-									团队成员列表</li>
-			                    	<li><input name="Fruit" type="checkbox" value="客户A" style="float:left;margin:18px 0 0 30px;"/><span class="sale_team_people">
-									团队负责人</span>
-									A</li>
-			                    	<li><input name="Fruit" type="checkbox" value="客户B" style="float:left;margin:18px 0 0 30px;"/>B</li>
-			                    	<li><input name="Fruit" type="checkbox" value="客户C" style="float:left;margin:18px 0 0 30px;"/>C</li>
-			                    	<li><input name="Fruit" type="checkbox" value="客户D" style="float:left;margin:18px 0 0 30px;"/>D</li>
-			                    </ul>
-			                </div>
-                    	</td>
-                    </tr>
-                	<tr>
-                    	<td></td>
-                    </tr>
-                </table>
-
-
-                <div style="width:100%;float:left;">
+                <div style="width:100%;float:left;display:none">
                 	<button class="btn btn-primary">保 存</button> <button class="btn btn-primary">取 消</button>
                 </div>
             </td>

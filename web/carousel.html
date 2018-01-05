@@ -8,19 +8,23 @@
     <link rel="stylesheet" href="../css/jquery.datetimepicker.css"/>
     <script src="../js/jquery-1.10.2.min.js"></script>
     <!-- 图片拖动排序开始 -->
-    <!-- <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script> -->
+    <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script>
     <!-- 图片拖动排序结束 -->
     <script src="../js/http.js"></script>
     <script src="../js/carousel.js"></script>
+    <style>
+    .btn{
+      font-size:16px;
+    }
+    </style>
+
 
 </head>
-<body style="background-color:#eee;">
-
-
+<body style="background:#eee url(../images/bg.png) left top repeat;">
   	<div id="content-header">
         <div id="breadcrumb">
         	<img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
-          <a href="products.html">珠宝图鉴后台管理系统</a>
+          	<a href="products.html">尚臻品后台管理系统</a>
             <img src="../img/breadcrumb.png"/>
         	<span class="font16">首页轮播</span>
         </div>
@@ -49,6 +53,7 @@
                 <input type="file" id="file_input" name="file_input" multiple style="visibility:hidden;">
                 <!-- <input type="file" webkitdirectory>   -->
                 <div id="click_to_upload_area" style="display:block;">+选择图片上传</div>
+                <div id="click_uploaded_img_area" style="display:block;" onclick="select_uploaded_img()">+选择已上传图片</div>
                 <img id="loading" src="../images/loading.gif" style="display:none;" />
                 <p id="upload_res_info"></p>
             </td>
@@ -67,6 +72,8 @@
     <div id="selectcover" class="selectcover" style="text-align:center;"></div>
     <div id="onselectcover" class="onselectcover"></div>
     <div style="height:2em;"></div>
+
+
 
 
 </body>

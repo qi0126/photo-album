@@ -75,13 +75,13 @@ hr {
 	background:#2295c9;
 }
 .bg_lg {
-	background:#28b779;
+	background:#aaabab;
 }
 .bg_dg {
 	background:#28b779;
 }
 .bg_ly {
-	background:#ffb848;
+	background:#aaabab;
 }
 .bg_dy {
 	background:#da9628;
@@ -103,11 +103,12 @@ hr {
 }
 body {
 	background-color:#2E363F;
+	background: url(../images/background01.jpg);
 	padding: 0;
 	margin-top:10%;
 }
-#logo, #loginbox {
-	width: 450px;
+#logo, #loginbox, #loginbox_background {
+	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
@@ -116,14 +117,33 @@ body {
 	margin: 0 auto;
 	display: block;
 }
-#loginbox {
+#loginbox_background{
 	overflow: hidden !important;
-	text-align: left;
-	position: relative;
+	background-color: #000;
+	filter: alpha(opacity=45);
+	opacity:0.45;
+	color:#fff;
+	border-radius: 5px;
+	height: 370px;
+	position:absolute;
+	left:35%;
+	top:0;
+	/*border: 1px solid #999;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.2), 0 1px 5px rgba(0,0,0,0.2), 0 0 0 12px rgba(255,255,255,0.4);*/
+
+}
+#loginbox {
+	position:absolute;
+	left:35%;
+	top:0;
+	padding:45px;
+	text-align: center;
+	font-size:16px;
+	width:408px;
+	padding-top: 30px;
 }
 #loginbox form {
 	width:100%;
-	background:#2E363F;
 	position:relative;
 	top:0;
 	left:0;
@@ -150,19 +170,22 @@ body {
 	text-align:center;
 }
 #loginbox .main_input_box .add-on {
-	padding:10px 9px;
-	*line-height:31px;
-	color:#fff;
-	width:30px;
-	display:inline-block;
+	padding: 5px 3px;
+	*line-height: 31px;
+	color: #fff;
+	width: 8%;
+	display: inline-block;
+	font-size: 27px;
 }
 #loginbox .main_input_box input {
-	height:37px;
-	border:0px;
-	display:inline-block;
-	width:87%;
-	line-height:28px;
-	margin-bottom:5px;
+	height: 37px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	width: 90%;
+	line-height: 28px;
+	margin-bottom: 5px;
+	margin-top: -6px;
+	margin-left: -5px;
 }
 #loginbox .controls {
 	padding:0 0px;
@@ -180,26 +203,28 @@ body {
 	margin-bottom: 0px;
 	background:none;
 	border-top: none;
-	border-bottom: 1px solid #616161;
+	/*border-bottom: 1px solid #999;*/
 }
 .form-vertical {
 	margin-top: 0px;
 	margin-bottom: 0px;
-	background:#616161;
-	border-top: 1px solid #616161;
+	border-top: 1px solid #999;
 }
 #loginbox .normal_text {
 	padding:10px 10px;
 	text-align:center;
 	font-size:14px;
 	line-height:30px;
-	background:#2E363F;
 	color:#B2DFEE;
 }
+#password_input{
+	margin-top: -7px;
+}
+
 /*#loginform .control-group {
 	background: #778899;
 }*/
-	@media (max-width:800px) {
+	/*@media (max-width:800px) {
 	#logo {
 	width: 60%;
 }
@@ -210,23 +235,41 @@ body {
 @media (max-width: 480px) {
 	#logo {
 	width: 40%;
-}
-#loginbox {
+}*/
+/*#loginbox {
 	width:90%;
 }
 #loginbox .control-group {
 	padding:8px 0;
 	margin-bottom:0px;
-}
+}*/
 }
 input {
 	font-family: "Microsoft Yahei";
 }
 .control-label {
-	color: #B2DFEE;
+	color: #999;
 	padding-left: 4px;
 }
 .login_top{
-	color:#B2DFEE;
-	font-size:28px;
+	color:#fff;
+	font-size:22px;
+	font-weight: normal;
+	font-family:'Microsoft Yahei';
+}
+.form-actions{
+	width:100%;
+}
+#checkBtn{
+	width:100%;
+	background-color:#e60e32;
+	height:38px;
+	color:#fff;
+	font-size:16px;
+}
+#pagebottom_text{
+	font-size:16px;
+	color:#fff;
+	text-align:center;
+	margin-top:50px;
 }

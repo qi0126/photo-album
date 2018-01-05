@@ -23,6 +23,19 @@ body {
 	text-align: center;
 	padding-top: 20px;
 	cursor: pointer;
+	float:left;
+}
+#click_uploaded_img_area {
+	border: 2px dashed #00BFFF;
+	color: #00BFFF;
+	width: 300px;
+	height: 80px;
+	font-size: 1.5em;
+	text-align: center;
+	padding-top: 20px;
+	cursor: pointer;
+	float:left;
+	margin-left:20px;
 }
 .cover {
 	position: fixed;
@@ -246,9 +259,7 @@ body {
 	float:left;
 }
 
-
-#list1, #list2 { width:100%; list-style-type:none; margin:0px; }
-#list1 li, #list2 li { list-style-type:none; }
-#list1 div, #list2 div { width:260px;min-height:50px; text-align:center; }
-#list2 { float:right; }
+.list_drag{width:100%; list-style-type:none; margin:0px;}
+.list_drag li { list-style-type:none; float:left; }
+.list_drag div{ width:260px;min-height:50px; text-align:center; }
 .placeHolder div { background-color:white !important; border:dashed 1px gray !important; }

@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <!-- 变色tab css -->
+    <link type="text/css" rel="stylesheet" href="../css/colorfulTab.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/checkboxcss3.css" />
+    <!-- 变色tab css -->
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/jquery.dataTables.css">
+    <link rel="stylesheet" href="../css/checkbix.min.css">
+    <link rel="stylesheet" href="../css/product_dimension.css">
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <script src="../js/jquery.dataTables.js"></script>
+    <script src="../js/customer_dimension.js"></script>
+
+</head>
+<body style="background-color:#eee;">
+  	<div id="content-header">
+        <div id="breadcrumb">
+        	<img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+          <a href="products.html">尚臻品后台管理系统</a>
+          <img src="../img/breadcrumb.png"/>
+        	<span class="font16">数据统计</span>
+          <img src="../img/breadcrumb.png"/>
+          <span class="font16">客户维度</span>
+        </div>
+    </div>
+    <div class="ccenter">
+      <div class="clr-title">
+        <!-- 选项卡 -->
+        <div class="colorful-tab-wrapper" id="colorful-elliptic" style="width:100%;">
+        	<ul class="colorful-tab-menu">
+        	  <li class="colorful-tab-menu-item active" tab-color="#cbe8fa"><a href="#elp-0">按日查看</a></li>
+        	  <li class="colorful-tab-menu-item" tab-color="#00A566"><a href="#elp-1">按周查看</a></li>
+        	  <li class="colorful-tab-menu-item" tab-color="#8021D3"><a href="#elp-2">按月查看</a></li>
+        	  <li class="colorful-tab-menu-item" tab-color="#E54400"><a href="#elp-3">按季度查看</a></li>
+            <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-4">按年查看</a></li>
+            <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-5">自定义时间查看</a></li>
+        	</ul>
+        	<div class="colorful-tab-container">
+      	  <div class="colorful-tab-content active" id="elp-0">
+            <table width="100%">
+              <tr>
+                <td style="width:30%;padding:10px;" valign="top">
+                  	<input id="change_select_input" type="checkbox" data-text="" class="checkbix" data-size="large" checked onchange="change_select(this)"></input>
+                    <span id="change_select_span">全部公司</span>
+                  	<!--必要脚本代码-->
+                  	<script src="../js/checkbix.min.js"></script>
+                  	<script>
+                  		Checkbix.init();
+                  	</script>
+                  <ul id="list-group" class="list-group" >
+                  </ul>
+                </td>
+                <td style="width:70%;">
+                  <table id="example1" class="display" cellspacing="0" width="100%">
+                   <thead>
+                     <tr>
+                       <th>序号</th>
+                       <th>一级户名</th>
+                       <th>二级户名</th>
+                       <th>客户编号</th>
+                       <th>出货克重</th>
+                       <th>出货克重</th>
+                     </tr>
+                   </thead>
+
+                   <tbody id="example1-tbody">
+
+                   </tbody>
+                 </table>
+                 </td>
+             </tr>
+           </table>
+      	  </div>
+      	  <div class="colorful-tab-content" id="elp-1">
+            <ul class="colorful-tab-menu">
+              <li class="colorful-tab-menu-item active" tab-color="#cbe8fa"><a href="#elp-0">按日查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#00A566"><a href="#elp-1">按周查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#8021D3"><a href="#elp-2">按月查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#E54400"><a href="#elp-3">按季度查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-4">按年查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-5">自定义时间查看</a></li>
+            </ul>
+            <div class="colorful-tab-container">
+            <div class="colorful-tab-content active" id="elp-0">
+              <table width="100%">
+                <tr>
+                  <td style="width:30%;padding:10px;" valign="top">
+                      <input id="change_select_input" type="checkbox" data-text="" class="checkbix" data-size="large" checked onchange="change_select(this)"></input>
+                      <span id="change_select_span">全部公司</span>
+
+                    <ul id="list-group" class="list-group" >
+                        <li id="li-001" onclick="selected_li(this)" class="list-group-item active">免费域名注册</li>
+                        <li id="li-002" onclick="selected_li(this)" class="list-group-item active">免费Window空间托管</li>
+                        <li id="li-003" onclick="selected_li(this)" class="list-group-item active">图像的数量</li>
+                        <li id="li-004" onclick="selected_li(this)" class="list-group-item active">每年更新成本</li>
+                    </ul>
+                  </td>
+                  <td style="width:70%;">
+                    <table id="example2" class="display" cellspacing="0" width="100%">
+                     <thead>
+                       <tr>
+                         <th>序号</th>
+                         <th>产品图</th>
+                         <th>产品名称</th>
+                         <th>产品编号</th>
+                         <th>产品类别</th>
+                         <th>已销售克重</th>
+                         <th>已销售件数</th>
+                       </tr>
+                     </thead>
+
+                     <tbody id="example2-tbody">
+
+                     </tbody>
+                   </table>
+                   </td>
+               </tr>
+             </table>
+      	  </div>
+      	  <div class="colorful-tab-content" id="elp-2">
+            <ul class="colorful-tab-menu">
+              <li class="colorful-tab-menu-item active" tab-color="#cbe8fa"><a href="#elp-0">按日查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#00A566"><a href="#elp-1">按周查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#8021D3"><a href="#elp-2">按月查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#E54400"><a href="#elp-3">按季度查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-4">按年查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-5">自定义时间查看</a></li>
+            </ul>
+            <div class="colorful-tab-container">
+            <div class="colorful-tab-content active" id="elp-0">
+              <table width="100%">
+                <tr>
+                  <td style="width:30%;padding:10px;" valign="top">
+                      <input id="change_select_input" type="checkbox" data-text="" class="checkbix" data-size="large" checked onchange="change_select(this)"></input>
+                      <span id="change_select_span">全部公司</span>
+
+                    <ul id="list-group" class="list-group" >
+                        <li id="li-001" onclick="selected_li(this)" class="list-group-item active">免费域名注册</li>
+                        <li id="li-002" onclick="selected_li(this)" class="list-group-item active">免费Window空间托管</li>
+                        <li id="li-003" onclick="selected_li(this)" class="list-group-item active">图像的数量</li>
+                        <li id="li-004" onclick="selected_li(this)" class="list-group-item active">每年更新成本</li>
+                    </ul>
+                  </td>
+                  <td style="width:70%;">
+                    <table id="example3" class="display" cellspacing="0" width="100%">
+                     <thead>
+                       <tr>
+                         <th>序号</th>
+                         <th>产品图</th>
+                         <th>产品名称</th>
+                         <th>产品编号</th>
+                         <th>产品类别</th>
+                         <th>已销售克重</th>
+                         <th>已销售件数</th>
+                       </tr>
+                     </thead>
+
+                     <tbody id="example3-tbody">
+
+                     </tbody>
+                   </table>
+                   </td>
+               </tr>
+             </table>
+      	  </div>
+      	  <div class="colorful-tab-content" id="elp-3">
+            <ul class="colorful-tab-menu">
+              <li class="colorful-tab-menu-item active" tab-color="#cbe8fa"><a href="#elp-0">按日查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#00A566"><a href="#elp-1">按周查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#8021D3"><a href="#elp-2">按月查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#E54400"><a href="#elp-3">按季度查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-4">按年查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-5">自定义时间查看</a></li>
+            </ul>
+            <div class="colorful-tab-container">
+            <div class="colorful-tab-content active" id="elp-0">
+              <table width="100%">
+                <tr>
+                  <td style="width:30%;padding:10px;" valign="top">
+                      <input id="change_select_input" type="checkbox" data-text="" class="checkbix" data-size="large" checked onchange="change_select(this)"></input>
+                      <span id="change_select_span">全部公司</span>
+                    <ul id="list-group" class="list-group" >
+                        <li id="li-001" onclick="selected_li(this)" class="list-group-item active">免费域名注册</li>
+                        <li id="li-002" onclick="selected_li(this)" class="list-group-item active">免费Window空间托管</li>
+                        <li id="li-003" onclick="selected_li(this)" class="list-group-item active">图像的数量</li>
+                        <li id="li-004" onclick="selected_li(this)" class="list-group-item active">每年更新成本</li>
+                    </ul>
+                  </td>
+                  <td style="width:70%;">
+                    <table id="example4" class="display" cellspacing="0" width="100%">
+                     <thead>
+                       <tr>
+                         <th>序号</th>
+                         <th>产品图</th>
+                         <th>产品名称</th>
+                         <th>产品编号</th>
+                         <th>产品类别</th>
+                         <th>已销售克重</th>
+                         <th>已销售件数</th>
+                       </tr>
+                     </thead>
+
+                     <tbody id="example4-tbody">
+
+                     </tbody>
+                   </table>
+                   </td>
+               </tr>
+             </table>
+      	  </div>
+          <div class="colorful-tab-content" id="elp-4">
+            <ul class="colorful-tab-menu">
+              <li class="colorful-tab-menu-item active" tab-color="#cbe8fa"><a href="#elp-0">按日查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#00A566"><a href="#elp-1">按周查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#8021D3"><a href="#elp-2">按月查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#E54400"><a href="#elp-3">按季度查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-4">按年查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-5">自定义时间查看</a></li>
+            </ul>
+            <div class="colorful-tab-container">
+            <div class="colorful-tab-content active" id="elp-0">
+              <table width="100%">
+                <tr>
+                  <td style="width:30%;padding:10px;" valign="top">
+                      <input id="change_select_input" type="checkbox" data-text="" class="checkbix" data-size="large" checked onchange="change_select(this)"></input>
+                      <span id="change_select_span">全部公司</span>
+                    <ul id="list-group" class="list-group" >
+                        <li id="li-001" onclick="selected_li(this)" class="list-group-item active">免费域名注册</li>
+                        <li id="li-002" onclick="selected_li(this)" class="list-group-item active">免费Window空间托管</li>
+                        <li id="li-003" onclick="selected_li(this)" class="list-group-item active">图像的数量</li>
+                        <li id="li-004" onclick="selected_li(this)" class="list-group-item active">每年更新成本</li>
+                    </ul>
+                  </td>
+                  <td style="width:70%;">
+                    <table id="example5" class="display" cellspacing="0" width="100%">
+                     <thead>
+                       <tr>
+                         <th>序号</th>
+                         <th>产品图</th>
+                         <th>产品名称</th>
+                         <th>产品编号</th>
+                         <th>产品类别</th>
+                         <th>已销售克重</th>
+                         <th>已销售件数</th>
+                       </tr>
+                     </thead>
+
+                     <tbody id="example5-tbody">
+
+                     </tbody>
+                   </table>
+                   </td>
+               </tr>
+             </table>
+      	  </div>
+          <div class="colorful-tab-content" id="elp-5">
+            <ul class="colorful-tab-menu">
+              <li class="colorful-tab-menu-item active" tab-color="#cbe8fa"><a href="#elp-0">按日查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#00A566"><a href="#elp-1">按周查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#8021D3"><a href="#elp-2">按月查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#E54400"><a href="#elp-3">按季度查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-4">按年查看</a></li>
+              <li class="colorful-tab-menu-item" tab-color="#445370"><a href="#elp-5">自定义时间查看</a></li>
+            </ul>
+            <div class="colorful-tab-container">
+            <div class="colorful-tab-content active" id="elp-0">
+              <table width="100%">
+                <tr>
+                  <td style="width:30%;padding:10px;" valign="top">
+                      <input id="change_select_input" type="checkbox" data-text="" class="checkbix" data-size="large" checked onchange="change_select(this)"></input>
+                      <span id="change_select_span">全部公司</span>
+                    <ul id="list-group" class="list-group" >
+                        <li id="li-001" onclick="selected_li(this)" class="list-group-item active">免费域名注册</li>
+                        <li id="li-002" onclick="selected_li(this)" class="list-group-item active">免费Window空间托管</li>
+                        <li id="li-003" onclick="selected_li(this)" class="list-group-item active">图像的数量</li>
+                        <li id="li-004" onclick="selected_li(this)" class="list-group-item active">每年更新成本</li>
+                    </ul>
+                  </td>
+                  <td style="width:70%;">
+                    <table id="example6" class="display" cellspacing="0" width="100%">
+                     <thead>
+                       <tr>
+                         <th>序号</th>
+                         <th>产品图</th>
+                         <th>产品名称</th>
+                         <th>产品编号</th>
+                         <th>产品类别</th>
+                         <th>已销售克重</th>
+                         <th>已销售件数</th>
+                       </tr>
+                     </thead>
+
+                     <tbody id="example6-tbody">
+
+                     </tbody>
+                   </table>
+                   </td>
+               </tr>
+             </table>
+      	  </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 变色tabJS开始 -->
+    <script src="../js/checkbix.min.js"></script>
+    <script type="text/javascript" src="../js/colorfulTab.min.js"></script>
+    <script>
+      $("#colorful").colorfulTab();
+
+      $("#colorful-elliptic").colorfulTab({
+        theme: "elliptic"
+      });
+
+       $("#colorful-flatline").colorfulTab({
+        theme: "flatline"
+      });
+
+      $("#colorful-background-image").colorfulTab({
+        theme: "flatline",
+        backgroundImage: "true",
+        overlayColor: "#002F68",
+        overlayOpacity: "0.8"
+      });
+      Checkbix.init();
+    </script>
+
+    <!-- 变色tabJS结束 -->
+
+
+  </div>
+</body>
+</html>

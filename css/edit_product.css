@@ -1,6 +1,6 @@
 
 .editproduct{
-	background-color:#eee;
+	background:#f5f5f5 url(../images/bg.png) left top repeat;
 }
 input[type="text"]{
 	height:37px;
@@ -62,6 +62,9 @@ input[type="text"]{
 	text-align:center;
 	height: 50px;
 }
+.addrowtable input{
+	text-align: center;
+}
 label{
 	font-size:16px;
 }
@@ -74,11 +77,149 @@ fieldset{
 	font-size:16px;
 }
 .lefttd{
-	min-width:72px;
+	min-width:88px;
 	font-size:16px;
 	font-weight: bold;
 	text-align: right;
 }
 #prolist{
 	line-height: 60px;
+}
+
+#img_list{
+	width:100%;
+	list-style-type:none;
+	margin:0px;
+}
+#img_list li{
+	float:left;
+	padding:10px;
+}
+#img_list_null{
+	width:100%;
+	list-style-type:none;
+	margin:0px;
+}
+#img_list_null li{
+	float:left;
+	padding:10px;
+}
+.img_listimg_div{
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    width: 210px;
+    min-height: 180px;
+    text-align: center;
+}
+.img_listimg{
+	padding:10px 5px 10px 5px;
+}
+.input_area{
+	width:94%;
+	text-align: center;
+}
+#selected_promotion_div{
+	font-size:16px;
+	line-height: 32px;
+}
+
+
+
+.tags {
+	background-color: #fff;
+	border: 1px solid #d5d5d5;
+	color: #333;
+	padding: 0px 6px;
+	width: 81%;
+	margin:0px auto;
+	border-radius: 3px;
+	float:left;
+	height:40px;
+}
+.tags:hover {
+	border-color: #f59942;
+	outline: 0 none;
+}
+.tags[class*="span"] {
+	float: none;
+	margin-left: 0;
+}
+.tags input[type="text"], .tags input[type="text"]:focus {
+	border: 0 none;
+	box-shadow: none;
+	display: inline;
+	line-height: 22px;
+	margin: 0;
+	width:150px;
+	font-size: 14px;
+	outline: 0 none;
+	padding: 4px 6px;
+
+}
+.tags .tag {
+	background-color: #f2f2f2;
+	color: #333;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: normal;
+	margin-bottom: 3px;
+	margin-right: 3px;
+	padding: 4px 22px 5px 9px;
+	position: relative;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+	transition: all 0.2s ease 0s;
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+.tags .tag .close {
+	bottom: 0;
+	color: #333;
+	float: none;
+	font-size: 12px;
+	line-height: 20px;
+	opacity: 1;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	text-shadow: none;
+	top: 0;
+	width: 18px;
+}
+.tags .tag .close:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+.close {
+	color: #000;
+	float: right;
+	font-size: 21px;
+	font-weight: bold;
+	line-height: 1;
+	opacity: 0.2;
+	text-shadow: 0 1px 0 #fff;
+}
+.close:hover, .close:focus {
+	color: #000;
+	cursor: pointer;
+	opacity: 0.5;
+	text-decoration: none;
+}
+button.close {
+	background: transparent none repeat scroll 0 0;
+	border: 0 none;
+	cursor: pointer;
+	padding: 0;
+}
+.tags .tag-warning {
+	background-color: #ffb752;
+}
+.leftm{
+	float:left;
+	padding-top: 10px;
+}
+.redfont{
+	color:red;
+	font-size:16px;
+	float:left;
+	padding-top: 10px;
 }

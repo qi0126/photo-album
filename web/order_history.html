@@ -1,0 +1,602 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>轮播首页</title>
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/new/bootstrap.min.js"></script>
+    <script src="../js/json_parse.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/order_history.js"></script>
+
+    <link rel="stylesheet" href="../css/order_history.css">
+    <style>
+      .panel-heading{
+      	background-color: #428bca;
+      }
+    </style>
+
+</head>
+<body style="background-color:#eee;min-width:1325px;">
+  <div id="breadcrumb">
+      <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+      <a href="products.html">尚臻品后台管理系统</a>
+      <img src="../img/breadcrumb.png"/>
+      <span class="font16">订单管理</span>
+      <img src="../img/breadcrumb.png"/>
+      <span class="font16">历史订单</span>
+  </div>
+  <div class="container" style="width:100%;">
+    <div>
+      <table id="search_table">
+        <tr>
+          <td class="search_table_lefttd">时间筛选</td>
+          <td><input id="order_starttime_input" placeholder="开始时间"></input>~<input id="order_endtime_input" placeholder="结束时间"></input></td>
+        </tr>
+        <tr>
+          <td class="search_table_lefttd">关键词筛选</td>
+          <td><input id="search_txt_input" placeholder="可填写客户名、客户编号、产品名称"></input></td>
+        </tr>
+        <tr>
+          <td class="search_table_lefttd">订单状态</td>
+          <td>
+            <select id="order_series_select">
+              <option selected>全部订单</option>
+              <option>已确定跟进订单</option>
+              <option>已取消跟进订单</option>
+          	</select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- <div class="del_div"><input id="all-select-btn" name="all_selected" onchange="allSelectOs(this)" style="margin:0;" type="checkbox"> 全选 <button type="button" class="btn btn-danger" onclick="multiDel()">删 除</button></div> -->
+    <div class="panel-group" id="accordion" style="width:100%; margin:20px auto;">
+      <div class="panel panel-default">
+          <div class="panel-heading" style="padding:5px">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" onclick="a_onclick()">
+                    <table class="order_table">
+                        <tbody>
+                          <tr>
+                            <!-- <td width="3%">
+                              <input name="all-select" value="20170622084358768" type="checkbox"></td> -->
+                            <td width="16%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">订单号：20170622084358768</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">下单时间：2017-06-22 16:43:58</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">客户名：</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">客户编号：002</a></td>
+                            <td width="13%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">处理人：
+                                <span id="operatorUserNumber_span_0">002</span></a>
+                            </td>
+                            <td width="20%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">状态：
+                                <span id="state_text_0">待客户确认订单</span>
+                                <span>
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#myModal-0" style="display:none;">需求明细上传</button></span>
+                                <span id="span1" class="spanclass">▼</span>
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </a>
+              </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body" style="padding:5px; overflow:auto; ">
+              <div id="orderlist_div" style="float:left;width:100%;">
+                <div class="tabletop">需求明细
+                  <span style="float:right;width:270px;text-align:center;">
+                    <button type="button" class="btn btn-default" onclick="Requ_btn('20170622084358768',this)">折叠需求明细 ▲</button></span>
+                </div>
+                <table id="tab_20170622084358768" style="width: 100%" class="table-bordered" cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td rowspan="2" style="min-width:280px;" valign="top" width="30%">
+                        <div border="1" id="order_table_c0" class="order_table_c">
+                          <div style="border:2px solid #2b6aa2;" id="div_0_0" class="div_0">
+                            <a href="javascript:backup(0,0)">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td style="border-right:1px #ccc solid; width:30px;text-align: center;">1</td>
+                                    <td></td>
+                                    <td>
+                                      <img src="/photo-album/image/170620113901320_8e125b3a6617765b7c896e7ad6f95683.jpg;width=240;height=240;equalratio=1" height="120px"></td>
+                                    <td>
+                                      <span id="span_0_0" style="color: rgb(0, 0, 0);">天地四神之青龙
+                                        <br>S100009
+                                        <br>克重：18.62-20.64克</span></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tdclass" style="min-width:160px;" width="30%">备注信息</td>
+                      <td class="tdclass" width="40%">出货产品明细</td></tr>
+                    <tr>
+                      <td valign="top">
+                        <div id="backup0" class="backup_sub_css">
+                          <div class="backup_note_class">喉咙</div></div>
+                      </td>
+                      <td valign="top">
+                        <div id="shipment_list_div_0" class="backup_sub_css">
+                          <table class="shipment_list_table table table-striped table-bordered table-hover" style="font-size:12px;">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>产品克重</th>
+                                <th>出货重量</th>
+                                <th>出货数量</th>
+                                <th>字印</th>
+                                <th>长度</th>
+                                <th>宽度</th>
+                                <th>高度</th>
+                                <th>长宽高</th>
+                                <th>圈口</th>
+                                <th>内径</th>
+                                <th>面宽</th></tr>
+                            </thead>
+                            <tbody id="shipment_list_tbody_0">
+                              <tr class="shipment_list_tr_0">
+                                <td>
+                                  <input value="shipment_list_0" class="shipment_list_checkout_0" style="height:20px;" type="checkbox"></td>
+                                <td>
+                                  <input min="0.0" oninput="if(value.length>14)value=value.slice(0,14)" value="1" onkeyup="numberchange(0,undefined)" id="shipment_pro_weight_0" type="number"></td>
+                                <td>
+                                  <input min="0.0" oninput="if(value.length>14)value=value.slice(0,14)" value="2" onkeyup="numberchange(0,undefined)" id="shipment_weight_0" type="number"></td>
+                                <td>
+                                  <input min="0.0" oninput="if(value.length>14)value=value.slice(0,14)" value="3" onkeyup="numberchange(0,undefined)" id="shipment_number_0" type="number"></td>
+                                <td>
+                                  <input value="" name="shipment_printfont" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_long" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_breadth" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_height" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_lwh" style="width:60px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_boresize" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_Ring" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_facewidth" style="width:40px" type="text"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div id="add_btn_line_div0" style="text-align: center; display: none;">
+                            <button type="button" name="shipment_add_btn" class="btn btn-primary" onclick="shipment_add_btn(0,0)">
+                              <img src="/photo-album/img/addpng.png">添加明细行</button>
+                            <button type="button" name="shipment_delete_btn" class="btn btn-default" onclick="shipment_delete_btn(0,1)">
+                              <img src="/photo-album/img/delectpng.png">删除明细行</button>
+                            <button id="0,1" type="button" class="btn btn-success" onclick="shipment_weight_submit_btn(0,0)" name="submit_deidata_btn">提交明细数据</button></div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>
+                  <div class="tabletop">出货明细 - 20170622084358768
+                    <span style="width:270px;float:right;">
+                      <a id="excel_btn0" class="btn btn-default" name="excel_btn" type="button" href="/photo-album/excel/exportOrder?orderid=20170622084358768">导出excel</a>
+                      <button class="btn btn-default" onclick="collapse_btn('20170622084358768',this)">折叠出货明细 ▲</button></span>
+                  </div>
+                  <table id="tb-20170622084358768" class="orderlist_table table table-striped table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th style="height: 25px">序</th>
+                        <th style="height: 25px">种 类</th>
+                        <th style="height: 25px">品 名</th>
+                        <th style="height: 25px">编 号</th>
+                        <th style="height: 25px">产品克重</th>
+                        <th style="height: 25px">出货重量</th>
+                        <th style="height: 25px">出货数量</th>
+                        <th style="height: 25px">字印</th>
+                        <th style="height: 25px">长度</th>
+                        <th style="height: 25px">宽度</th>
+                        <th style="height: 25px">高度</th>
+                        <th style="height: 25px">长宽高</th>
+                        <th style="height: 25px">圈口</th>
+                        <th style="height: 25px">内径</th>
+                        <th style="height: 25px">面宽</th></tr>
+                    </thead>
+                    <tbody id="shipment_tbody_0">
+                      <tr id="shipment_tbody_tr_0" class="shipment_tbody_tr_class_0_">
+                        <td class="num_display">1</td>
+                        <td>足金999</td>
+                        <td>天地四神之青龙</td>
+                        <td>S100009</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div id="btn-20170622084358768" style="text-align:center;">
+                    <button style="display: none;" id="shipment_sub_btn_0" type="button" class="btn btn-primary" onclick="shipment_sub_btn(0)" name="manage_submit_btn">处理完成并发送</button></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+      </div>
+      <div class="panel panel-default">
+          <div class="panel-heading" style="padding:5px">
+              <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" onclick="a_onclick()">
+                    <table class="order_table">
+                        <tbody>
+                          <tr>
+                            <!-- <td width="3%">
+                              <input name="all-select" value="20170622084358768" type="checkbox"></td> -->
+                            <td width="16%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">订单号：20170622084358768</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">下单时间：2017-06-22 16:43:58</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">客户名：</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">客户编号：002</a></td>
+                            <td width="13%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">处理人：
+                                <span id="operatorUserNumber_span_0">002</span></a>
+                            </td>
+                            <td width="20%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">状态：
+                                <span id="state_text_0">待客户确认订单</span>
+                                <span>
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#myModal-0" style="display:none;">需求明细上传</button></span>
+                                <span id="span2" class="spanclass">▼</span>
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </a>
+              </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body" style="padding:5px; overflow:auto; ">
+              <div id="orderlist_div" style="float:left;width:100%;">
+                <div class="tabletop">需求明细
+                  <span style="float:right;width:270px;text-align:center;">
+                    <button type="button" class="btn btn-default" onclick="Requ_btn('20170622084358768',this)">折叠需求明细 ▲</button></span>
+                </div>
+                <table id="tab_20170622084358768" style="width: 100%" class="table-bordered" cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td rowspan="2" style="min-width:280px;" valign="top" width="30%">
+                        <div border="1" id="order_table_c0" class="order_table_c">
+                          <div style="border:2px solid #2b6aa2;" id="div_0_0" class="div_0">
+                            <a href="javascript:backup(0,0)">
+                              <table>
+                                <tbody>
+                                  <tr>
+                                    <td style="border-right:1px #ccc solid; width:30px;text-align: center;">1</td>
+                                    <td></td>
+                                    <td>
+                                      <img src="/photo-album/image/170620113901320_8e125b3a6617765b7c896e7ad6f95683.jpg;width=240;height=240;equalratio=1" height="120px"></td>
+                                    <td>
+                                      <span id="span_0_0" style="color: rgb(0, 0, 0);">天地四神之青龙
+                                        <br>S100009
+                                        <br>克重：18.62-20.64克</span></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="tdclass" style="min-width:160px;" width="30%">备注信息</td>
+                      <td class="tdclass" width="40%">出货产品明细</td></tr>
+                    <tr>
+                      <td valign="top">
+                        <div id="backup0" class="backup_sub_css">
+                          <div class="backup_note_class">喉咙</div></div>
+                      </td>
+                      <td valign="top">
+                        <div id="shipment_list_div_0" class="backup_sub_css">
+                          <table class="shipment_list_table table table-striped table-bordered table-hover" style="font-size:12px;">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>产品克重</th>
+                                <th>出货重量</th>
+                                <th>出货数量</th>
+                                <th>字印</th>
+                                <th>长度</th>
+                                <th>宽度</th>
+                                <th>高度</th>
+                                <th>长宽高</th>
+                                <th>圈口</th>
+                                <th>内径</th>
+                                <th>面宽</th></tr>
+                            </thead>
+                            <tbody id="shipment_list_tbody_0">
+                              <tr class="shipment_list_tr_0">
+                                <td>
+                                  <input value="shipment_list_0" class="shipment_list_checkout_0" style="height:20px;" type="checkbox"></td>
+                                <td>
+                                  <input min="0.0" oninput="if(value.length>14)value=value.slice(0,14)" value="1" onkeyup="numberchange(0,undefined)" id="shipment_pro_weight_0" type="number"></td>
+                                <td>
+                                  <input min="0.0" oninput="if(value.length>14)value=value.slice(0,14)" value="2" onkeyup="numberchange(0,undefined)" id="shipment_weight_0" type="number"></td>
+                                <td>
+                                  <input min="0.0" oninput="if(value.length>14)value=value.slice(0,14)" value="3" onkeyup="numberchange(0,undefined)" id="shipment_number_0" type="number"></td>
+                                <td>
+                                  <input value="" name="shipment_printfont" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_long" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_breadth" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_height" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_lwh" style="width:60px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_boresize" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_Ring" style="width:40px" type="text"></td>
+                                <td>
+                                  <input value="" name="shipment_facewidth" style="width:40px" type="text"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div id="add_btn_line_div0" style="text-align: center; display: none;">
+                            <button type="button" name="shipment_add_btn" class="btn btn-primary" onclick="shipment_add_btn(0,0)">
+                              <img src="/photo-album/img/addpng.png">添加明细行</button>
+                            <button type="button" name="shipment_delete_btn" class="btn btn-default" onclick="shipment_delete_btn(0,1)">
+                              <img src="/photo-album/img/delectpng.png">删除明细行</button>
+                            <button id="0,1" type="button" class="btn btn-success" onclick="shipment_weight_submit_btn(0,0)" name="submit_deidata_btn">提交明细数据</button></div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>
+                  <div class="tabletop">出货明细 - 20170622084358768
+                    <span style="width:270px;float:right;">
+                      <a id="excel_btn0" class="btn btn-default" name="excel_btn" type="button" href="/photo-album/excel/exportOrder?orderid=20170622084358768">导出excel</a>
+                      <button class="btn btn-default" onclick="collapse_btn('20170622084358768',this)">折叠出货明细 ▲</button></span>
+                  </div>
+                  <table id="tb-20170622084358768" class="orderlist_table table table-striped table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th style="height: 25px">序</th>
+                        <th style="height: 25px">种 类</th>
+                        <th style="height: 25px">品 名</th>
+                        <th style="height: 25px">编 号</th>
+                        <th style="height: 25px">产品克重</th>
+                        <th style="height: 25px">出货重量</th>
+                        <th style="height: 25px">出货数量</th>
+                        <th style="height: 25px">字印</th>
+                        <th style="height: 25px">长度</th>
+                        <th style="height: 25px">宽度</th>
+                        <th style="height: 25px">高度</th>
+                        <th style="height: 25px">长宽高</th>
+                        <th style="height: 25px">圈口</th>
+                        <th style="height: 25px">内径</th>
+                        <th style="height: 25px">面宽</th></tr>
+                    </thead>
+                    <tbody id="shipment_tbody_0">
+                      <tr id="shipment_tbody_tr_0" class="shipment_tbody_tr_class_0_">
+                        <td class="num_display">1</td>
+                        <td>足金999</td>
+                        <td>天地四神之青龙</td>
+                        <td>S100009</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div id="btn-20170622084358768" style="text-align:center;">
+                    <button style="display: none;" id="shipment_sub_btn_0" type="button" class="btn btn-primary" onclick="shipment_sub_btn(0)" name="manage_submit_btn">处理完成并发送</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="panel panel-default">
+          <div class="panel-heading" style="padding:5px">
+              <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" onclick="a_onclick()">
+                    <table class="order_table">
+                        <tbody>
+                          <tr>
+                            <!-- <td width="3%">
+                              <input name="all-select" value="20170622084358768" type="checkbox"></td> -->
+                            <td width="16%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">订单号：20170622084358768</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">下单时间：2017-06-22 16:43:58</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">客户名：</a></td>
+                            <td width="17%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">客户编号：002</a></td>
+                            <td width="13%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">处理人：
+                                <span id="operatorUserNumber_span_0">002</span></a>
+                            </td>
+                            <td width="20%">
+                              <a data-toggle="collapse" data-parent="#accordion" onclick="openmenu('20170622084358768','0')" href="#collapse0">状态：
+                                <span id="state_text_0">待客户确认订单</span>
+                                <span>
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#myModal-0" style="display:none;">需求明细上传</button></span>
+                                <span id="span3" class="spanclass">▼</span>
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </a>
+              </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse">
+            <div class="panel-body" style="padding:5px; overflow:auto; ">
+                <div id="orderlist_div" style="float:left;width:100%;">
+                  <div class="tabletop">需求明细
+                    <span style="float:right;width:270px;text-align:center;">
+                      <button type="button" class="btn btn-default" onclick="Requ_btn('20170622070015744',this)">折叠需求明细 ▲</button></span>
+                  </div>
+                  <table id="tab_20170622070015744" style="width: 100%" class="table-bordered" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <td rowspan="2" style="min-width:280px;" valign="top" width="30%">
+                          <div border="1" id="order_table_c7" class="order_table_c">
+                            <div style="border:2px solid #2b6aa2;" id="div_7_0" class="div_7">
+                              <a href="javascript:backup(7,0)">
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td style="border-right:1px #ccc solid; width:30px;text-align: center;">1</td>
+                                      <td></td>
+                                      <td>
+                                        <img src="/photo-album/image/170620113901320_8e125b3a6617765b7c896e7ad6f95683.jpg;width=240;height=240;equalratio=1" height="120px"></td>
+                                      <td>
+                                        <span id="span_7_0" style="color:red;">天地四神之青龙
+                                          <br>S100009
+                                          <br>克重：18.62-20.64克</span></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </a>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="tdclass" style="min-width:160px;" width="30%">备注信息</td>
+                        <td class="tdclass" width="40%">出货产品明细</td></tr>
+                      <tr>
+                        <td valign="top">
+                          <div id="backup7" class="backup_sub_css">
+                            <div class="backup_note_class">后悔明明</div>
+                            <div class="backup_note_class">破狗狗</div>
+                            <div class="backup_note_class">破狗狗</div>
+                            <div class="backup_note_class">公民了</div>
+                            <div class="backup_note_class">红米</div>
+                            <div class="backup_note_class">狗哥哥</div>
+                            <div class="backup_note_class">你你哦</div></div>
+                        </td>
+                        <td valign="top">
+                          <div id="shipment_list_div_7" class="backup_sub_css">
+                            <table class="shipment_list_table table table-striped table-bordered table-hover" style="font-size:12px;">
+                              <thead>
+                                <tr>
+                                  <th></th>
+                                  <th>产品克重</th>
+                                  <th>出货重量</th>
+                                  <th>出货数量</th>
+                                  <th>字印</th>
+                                  <th>长度</th>
+                                  <th>宽度</th>
+                                  <th>高度</th>
+                                  <th>长宽高</th>
+                                  <th>圈口</th>
+                                  <th>内径</th>
+                                  <th>面宽</th></tr>
+                              </thead>
+                              <tbody id="shipment_list_tbody_7">
+                                <tr class="shipment_list_tr_7">
+                                  <td>
+                                    <input value="shipment_list_7" class="shipment_list_checkout_7" style="height:20px;" type="checkbox"></td>
+                                  <td>
+                                    <input min="0.0" value="0" oninput="if(value.length>14)value=value.slice(0,14)" onkeyup="numberchange(7,0)" id="shipment_pro_weight_7" type="number"></td>
+                                  <td>
+                                    <input min="0.0" value="0" oninput="if(value.length>14)value=value.slice(0,14)" onkeyup="numberchange(7,0)" id="shipment_weight_7" type="number"></td>
+                                  <td>
+                                    <input min="0.0" value="0" oninput="if(value.length>14)value=value.slice(0,14)" onkeyup="numberchange(7,0)" id="shipment_number_7" type="number"></td>
+                                  <td>
+                                    <input value="" name="shipment_printfont" type="text"></td>
+                                  <td>
+                                    <input value="" name="shipment_long" style="width:40px" type="text"></td>
+                                  <td>
+                                    <input value="" name="shipment_breadth" style="width:40px" type="text"></td>
+                                  <td>
+                                    <input value="" name="shipment_height" style="width:40px" type="text"></td>
+                                  <td>
+                                    <input value="" name="shipment_lwh" style="width:60px" type="text"></td>
+                                  <td>
+                                    <input value="" name="shipment_boresize" style="width:40px" type="text"></td>
+                                  <td>
+                                    <input value="" name="shipment_Ring" style="width:40px" type="text"></td>
+                                  <td>
+                                    <input value="" name="shipment_facewidth" style="width:40px" type="text"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <div id="add_btn_line_div7" style="text-align: center;">
+                              <button type="button" name="shipment_add_btn" class="btn btn-primary" onclick="shipment_add_btn(7,0)">
+                                <img src="/photo-album/img/addpng.png">添加明细行</button>
+                              <button type="button" name="shipment_delete_btn" class="btn btn-default" onclick="shipment_delete_btn(7,1)">
+                                <img src="/photo-album/img/delectpng.png">删除明细行</button>
+                              <button id="7,1" type="button" class="btn btn-success" onclick="shipment_weight_submit_btn(7,0)" name="submit_deidata_btn">提交明细数据</button></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div>
+                    <div class="tabletop">出货明细 - 20170622070015744
+                      <span style="width:270px;float:right;">
+                        <a style="display: none;" id="excel_btn7" class="btn btn-default" name="excel_btn" type="button" href="/photo-album/excel/exportOrder?orderid=20170622070015744">导出excel</a>
+                        <button class="btn btn-default" onclick="collapse_btn('20170622070015744',this)">折叠出货明细 ▲</button></span>
+                    </div>
+                    <table id="tb-20170622070015744" class="orderlist_table table table-striped table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <th style="height: 25px">序</th>
+                          <th style="height: 25px">种 类</th>
+                          <th style="height: 25px">品 名</th>
+                          <th style="height: 25px">编 号</th>
+                          <th style="height: 25px">产品克重</th>
+                          <th style="height: 25px">出货重量</th>
+                          <th style="height: 25px">出货数量</th>
+                          <th style="height: 25px">字印</th>
+                          <th style="height: 25px">长度</th>
+                          <th style="height: 25px">宽度</th>
+                          <th style="height: 25px">高度</th>
+                          <th style="height: 25px">长宽高</th>
+                          <th style="height: 25px">圈口</th>
+                          <th style="height: 25px">内径</th>
+                          <th style="height: 25px">面宽</th></tr>
+                      </thead>
+                      <tbody id="shipment_tbody_7"></tbody>
+                    </table>
+                    <div id="btn-20170622070015744" style="text-align:center;">
+                      <button id="shipment_sub_btn_7" type="button" class="btn btn-primary" onclick="shipment_sub_btn(7)" name="manage_submit_btn">处理完成并发送</button></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div id="fengpages" style="width:100%; margin:10px auto;line-height:43px;">
+    </div>
+    <div style="height:50px;"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+#breadcrumb {
+    background-color: #fff;
+    border-bottom: 1px solid #e3ebed;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 10px;
+	margin-bottom:20px;
+	font-size:16px;
+}
+.user_bigarea{
+	padding-top:20px;
+  width:96%;
+  margin:0 auto;
+  font-size:17px;
+  line-height: 25px;
+}
+.tab_tdleft{
+  width:105px;
+  text-align: right;
+
+}
+.user_topmenu{
+  background-color: #428bca;
+  color:#fff;
+}
+.spanclass{
+  width:30px;
+  float:right;
+}
+#select_html_state{
+  margin-top: 10px;
+  height: 35px;
+}
+#select_html_type{
+  margin-top: 10px;
+  height: 35px;
+}
+#input_html_keyword{
+  margin-top: 10px;
+  height: 35px;
+}
+.null_text_div{
+  border-radius: 3px;
+  background-color:#fff;
+  border:1px solid #ccc;
+  padding:8px;
+}
+.userfeedback_detail_table_class{
+  width: 100%;
+  line-height:40px;
+  TABLE-LAYOUT: fixed;
+}
+.userfeedback_detail_table_class td{
+  WORD-WRAP: break-word
+}
+#nextPager_div{
+  text-align: center;
+}
+#fenpage_div{
+  text-align: center;
+}
+#text_span{
+  float:left;
+}

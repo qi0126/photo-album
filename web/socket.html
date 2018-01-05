@@ -9,16 +9,16 @@
 	var websocket = null;
 	var localurl=document.location.href.split("/")[2];
 	if ('WebSocket' in window) {
-		// websocket = new WebSocket("ws://zbtj.batar.cn:88/photo-album/input_message");
-		websocket = new WebSocket("ws://"+localurl+"/photo-album/ordermessage");
+		websocket = new WebSocket("ws://zbtj.batar.cn:88/photo-album/input_message");
+		// websocket = new WebSocket("ws://"+localurl+"/photo-album/ordermessage");
 	}
 	else if ('MozWebSocket' in window) {
-		// websocket = new MozWebSocket("ws://zbtj.batar.cn:88/photo-album/input_message");
-		websocket = new MozWebSocket("ws://"+localurl+"/photo-album/ordermessage");
+		websocket = new MozWebSocket("ws://zbtj.batar.cn:88/photo-album/input_message");
+		// websocket = new MozWebSocket("ws://"+localurl+"/photo-album/ordermessage");
 	}
 	else {
-		// websocket = new SockJS("ws://zbtj.batar.cn:88/photo-album/input_message");
-		websocket = new SockJS("ws://"+localurl+"/photo-album/ordermessage");
+		websocket = new SockJS("ws://zbtj.batar.cn:88/photo-album/input_message");
+		// websocket = new SockJS("ws://"+localurl+"/photo-album/ordermessage");
 	}
 	websocket.onopen = onOpen;
 	websocket.onmessage = onMessage;

@@ -20,6 +20,11 @@
     <!-- 图片拖动排序开始 -->
     <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script>
     <!-- 图片拖动排序结束 -->
+    <style>
+      .btn{
+        font-size: 16px;
+      }
+    </style>
     <script>
 			//分页js
 		$(function(){
@@ -31,7 +36,7 @@
 					maxPageButton: buttons,
 					onPageClicked: function(obj, pageIndex) {
 						//取页码变量pageIndex+1
-						console.log(pageIndex+1);
+						// console.log(pageIndex+1);
 					}
 				});
 			}
@@ -42,10 +47,10 @@
 
   </head>
 
-  <body style="background-color:#eee;">
+  <body style="background:#eee url(../images/bg.png) left top repeat;">
     <div id="breadcrumb">
         <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
-        <a href="products.html">珠宝图鉴后台管理系统</a>
+        <a href="products.html">尚臻品后台管理系统</a>
         <img src="../img/breadcrumb.png"/>
         <span class="font16">图片中心</span>
     </div>
@@ -62,11 +67,13 @@
       </tr>
       <tr>
         <td width="20%" valign="top">
-            <div style="padding:10px;">
+            <div style="padding:10px;" id="pro_search_div">
             	<!--产品搜索栏开始-->
-                <input name="Text1" onkeyup="search_input(this.value)" type="text" class="pro_search" list="pro_search"/>
+              <!-- <input name="Text1" onkeyup="search_input(this.value)" type="text" class="pro_search" list="pro_search"/> -->
+              <input name="Text1" type="text" class="pro_search" list="pro_search" id="pro_search_input"/>
                 <datalist id="pro_search"></datalist>
-                <button class="btn btn-info" onClick="product_search()">搜索</button>
+                <!-- <button class="btn btn-info" onClick="product_search()">搜索</button> -->
+                <button class="btn btn-info" onClick="search_input()">搜索</button>
                 <!--产品搜索栏结束-->
             </div>
             <div id="divframe" style="overFlow:auto;height:550px;padding-right:15px;">
@@ -78,7 +85,9 @@
         </td>
     	<td width="80%" valign="top">
             <div style=" text-align:left;padding:10px;">
-                <button class="btn btn-primary" id="uploadimg" onClick="uploadimg()">图片上传</button>
+                <!-- <button class="btn btn-primary" id="uploadimg" onClick="uploadimg()">图片上传</button> -->
+                <button class="btn btn-primary" id="uploadimg" onClick="$('#file_input').click()">图片上传</button>
+
                 <br/><br/>
             <div>
             <div id="uploadiv" style="display:none;">
@@ -90,16 +99,22 @@
                     <tr>
                         <td valign="top" align="right">轮播图片:</td>
                         <td valign="top">
+                          <!-- method必须为post 及enctype属性-->
                             <div id="click_to_upload_area" onclick="$('#file_input').click()">+选择图片上传</div>
                             <input type="file" id="file_input" name="file_input" onchange="upload_btn(this)" multiple style="visibility:hidden;">
+                            <!-- <input type="file" id="file_input" name="file_input" onchange="upload_btn(this)" multiple> -->
                         </td>
                     </tr>
                 </table>
             </div>
-            <div class="product_name">产品编码：<span id="listdd"></span></div>
+            <div class="product_name">
+              产品编码：<span id="listdd"></span>
+              <button type="button" id="savesuccess_btn" class="btn btn-success" style="margin-left:30%;display:none">图片顺序保存成功</button>
+            </div>
             <div id="divframe">
-                 <input type='button' value='批量删除' onClick="fun()" class="btn btn-warning"/>  <input id="allselect_checkout" type="checkbox" name="cb" onClick="changeState(this.checked)"> 全选
-      	   			<div id="jsonTip">
+                 <input type='button' id="batchDel_btn" value='批量删除' onClick="fun()" class="btn btn-warning"/>  <span id="allselect_span"><input id="allselect_checkout" type="checkbox" name="cb" onClick="changeState(this.checked)"> 全选</span>
+
+                <div id="jsonTip">
       					       <ul id="list1"></ul>
                 </div>
                 <input name="list1SortOrder" type="hidden" />

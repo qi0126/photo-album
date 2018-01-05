@@ -26,14 +26,14 @@ window.onload = function() {
 			html += '</div>';
             html += '  <tr>';
             html += '    <td valign="top"><div class="carousel_title">轮播图片</div></td>';
-            html += '    <td>';
-            html += '       <ul id="list1">';
+            html += '    <td  colspan="2">';
+            html += '       <ul id="list'+i+'" class="list_drag" style="list-style-type:none">';
             for (var j = 0; j < data[i].image.length; j++) {
                 if (data[i].image[j] != null) {
-                    html += '   <li>';
+                    html += '   <li class="li_'+i+'_'+data[i].id+'">';
                     html += '     <div class="firstpage_img_list">';
                     html += '       <div style="text-align:right;padding:4px;" width="200px"><span id="' + data[i].id + '@' + data[i].image[j].name + '" onclick="delImg(this)"><img src="../images/delimg.png" width="30px"></img</span></div>';
-                    html += '       <img src="../index/image_tab/' + data[i].image[j].name + '" width="220px" height="170px" onclick="showCover(this)"/><br/>';
+                    html += '       <img src="../index/image_tab/' + data[i].image[j].name + '" width="220px" height="170px" onclick="showCover(this)" id="' + data[i].image[j].name + '"/><br/>';
                     html += '       设置顺序:<input type="text" name="' + data[i].id + '@' + data[i].image[j].name + '" value="' + data[i].image[j].index + '" class="setup_input" onchange="setImgIndex(this)"/><br/>';
                     html += '       设置链接:<input type="text" name="' + data[i].id + '@' + data[i].image[j].name + '" value="' + data[i].image[j].imagelink + '"  class="setup_input" onchange="setImgLink(this)"/>';
                     html += '     </div>';
@@ -42,7 +42,6 @@ window.onload = function() {
             }
             html += '       </ul>';
             html += '    </td>';
-            html += '    <td></td>';
             html += '  </tr>';
             html += '  <tr>';
 			html += '    <td colspan="3" align="center">';
@@ -54,9 +53,46 @@ window.onload = function() {
             html += '</table>';
         }
         $('#carousel_preview').append(html);
-        $("#list1, #list2").dragsort({ dragSelector: "div", dragBetween: true, dragEnd: saveOrder, placeHolderTemplate: "<li class='placeHolder'><div></div></li>" });
+        // console.log($(".list_drag"));
+        $(".list_drag").each(function(q,qelem){
+          // console.log($(qelem));
+          $(qelem).dragsort({ dragSelector: "div", dragBetween: true, dragEnd: saveOrder, placeHolderTemplate: "<li class='placeHolder'><div></div></li>" });
+        });
+        // $("#list0, #list1").dragsort({ dragSelector: "div", dragBetween: true, dragEnd: saveOrder, placeHolderTemplate: "<li class='placeHolder'><div></div></li>" });
     }
 
+
+    //轮播顺序保存
+    function saveOrder() {
+      // console.log(this[0].className);
+      // console.log((this[0].className).split('_')[1]);
+      var carousel_num = (this[0].className).split('_')[1];
+      // console.log(carousel_num);
+      // console.log((this[0].className).split('_')[2]);
+      // console.log($('#list'+carousel_num+' li'));
+      var carousel_img_list =[];
+      $('#list'+carousel_num+' li').each(function(u,uelem){
+        // console.log($(uelem).find('input')[1].value);
+        var temp_img_list ={};
+        temp_img_list.name = $(uelem).find('img')[1].id;
+        temp_img_list.index = u+1 ;
+        temp_img_list.imagelink = $(uelem).find('input')[1].value ;
+        // console.log(temp_img_list);
+        carousel_img_list.push(temp_img_list);
+      });
+      // console.log(carousel_img_list);
+      var mainTabImage = {id: (this[0].className).split('_')[2], image: carousel_img_list};
+      var post_data = new FormData();
+      post_data.append('mainTabImage', JSON.stringify(mainTabImage));
+      http.postAjax_clean("/photo-album/manger/updateMainTabImage", post_data,function(data) {
+        // console.log(data);
+        if(data.code == 0){
+          location.reload();
+        }else{
+          alert(data.msg);
+        }
+      });
+    };
 
 
     function get_cb(data) {
@@ -162,6 +198,8 @@ window.onload = function() {
         });
     }, false);
 };
+
+
 
 /**
 * 轮播模板编辑
@@ -486,14 +524,15 @@ function addToCarouselFromOnLive(elem) {
   });
 }
 
+
+
 /**
 * 删除云端图片
 */
 function deleteCloudPic(elem){
 	if(picCheckedArr.length > 0){
-
 		http.getAjax_clean('/photo-album/index/del_main_tab?pics='+JSON.stringify(picCheckedArr), function(data) {
-			console.log(JSON.stringify(data));
+			// console.log(JSON.stringify(data));
 			if (data['state'] == true) {
 				alert('删除成功');
 				location.reload();
@@ -501,9 +540,7 @@ function deleteCloudPic(elem){
 				alert('删除失败');
 			}
 		});
-
 	}
-
 }
 
 //设置顺序JS

@@ -3871,14 +3871,13 @@ header .fakeInput button {
 .appdiv{
 	background-color:#333;
 	height:60px;
-	line-height:60px;
 	color:#fff;
 	paddind:5px;
 }
 .appbutton{
 	background-color:#eea236;
 	color:#fff;
-	width:21%;
+	width:90px;
 	height:40px;
 	border:0px;
 	border-radius: 3px;
@@ -3889,7 +3888,7 @@ header .fakeInput button {
 }
 .downloadappdiv{
 	float:left;
-	width:60%;
+	width:68px;
 	line-height:20px;
 	padding:5px;
 }
@@ -3928,4 +3927,7 @@ header .fakeInput button {
 .contactus_pro_img2{
 	height: 100px;
 	vertical-align:middle;
+}
+#appdiv{
+	padding-top:10px;
 }

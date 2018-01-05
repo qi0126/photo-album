@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>客户管理</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css">
+    <link href="../css/imgcenter.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/http.js"></script>
+
+    <script src="../js/customer_manage.js"></script>
+
+</head>
+<body style="background:#f5f5f5 url(../images/bg.png) left top repeat;">
+    <div id="breadcrumb">
+        <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+        <a href="products.html">尚臻品后台管理系统</a>
+        <img src="../img/breadcrumb.png"/>
+        <span class="font16">用户管理</span>
+    </div>
+    <div>
+    	<table class="imgcentertab" cellpadding="0" border="1"  cellspacing="10">
+          <tr class="imgctabtr" bgcolor="#2b6aa2" style="">
+            <td width="30%">客户列表</td>
+            <td width="70%">客户详细信息</td>
+          </tr>
+          <tr style="">
+            <td valign="top">
+            	<div >
+                	<button class="btn btn-primary" id="add_customer_btn" onclick="add_customer_btn()">添加新客户</button>
+                  <button class="btn btn-info" id="enable_clients" onclick="enable_clients()">启用客户</button>
+                  <button class="btn btn-warning" id="forbidden_clients" onclick="forbidden_clients()">禁用客户</button>
+                  <button class="btn btn-danger"  id="del_customer_btn" onclick="del_customer_btn()">删除客户</button>
+                </div>
+                <div>
+                	<input id="search_cutomer_input"  placeholder="客户搜索" style="margin-top:10px;width:70%;height:35px;"></input>
+                  <button type="button" class="btn btn-info" onclick="search_cutomer()">搜 索</button>
+                </div>
+                <div style="margin-top:20px;overFlow:auto;height:630px;">
+                  <table id="customer_list">
+
+                  </table>
+                	<!-- <ul id="customer_list">
+                  </ul> -->
+                </div>
+            </td>
+            <td  valign="top">
+              <div>个人信息</div>
+              <table class="table_right_css">
+                	<tr>
+                    	<td>一级户名</td>
+                    	<td class="tdleft">
+          							<input name="Text1" type="text" id="oneaccount" maxlength="12" style="width:200px;">
+                        <span style="color:red">*</span>
+          						</td>
+                    	<td>授信额度</td>
+                    	<td class="tdleft">
+                        <input type="number" id="credit" type="text" maxlength="16" style="width:200px;">
+                      </td>
+                  </tr>
+                	<tr>
+                    	<td>二级户名</td>
+                    	<td class="tdleft"><input name="twoaccount" type="text" id="twoaccount" maxlength="12" style="width:200px;"></td>
+                    	<td>工费优惠</td>
+                    	<td class="tdleft"><input type="number" type="text" id="machineprivilege" maxlength="16" style="width:200px;">元/g</td>
+                  </tr>
+                	<tr>
+                    	<td>昵 称</td>
+                    	<td class="tdleft"><input name="nikename" type="text" id="nikename" maxlength="16" style="width:200px;"> <span style="color:red">*</span></td>
+                    	<td>出货返利</td>
+                    	<td class="tdleft"><input type="number" type="text" id="shippingrebate" maxlength="16" style="width:200px;">元/g</td>
+                  </tr>
+                	<tr>
+                    	<td>客户编码</td>
+                    	<td class="tdleft"><input name="userid" type="text" id="userid" maxlength="16" style="width:200px;"  onkeyup="value=value.replace(/[^\w\.\/]/ig,'')"> <span style="color:red">*</span></td>
+                    	<td>免息周期</td>
+                    	<td class="tdleft">
+                        <input type="number" type="text" id="freeperiod"  maxlength="16" style="width:200px;">
+                      </td>
+                  </tr>
+                	<tr>
+                    <td>公司全称</td>
+                    <td class="tdleft">
+                      <input id="company_fullname" name="customer_name" type="text" maxlength="30" style="width:200px;">
+                    </td>
+                    <td>月利率</td>
+                    <td class="tdleft">
+                      <input type="monthlyrate0" type="text" id="monthlyrate"  maxlength="16" style="width:200px;">
+                    </td>
+                  </tr>
+                	<tr>
+                    <td>所属大区</td>
+                    <td class="tdleft">
+                      <select name="region" id="region" style="width:200px;">
+                        <option selected value=" "> </option>
+                        <option value="暂无区域">暂无区域</option>
+                      </select>
+                      <!-- <span style="color:red">*</span> -->
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                	<tr>
+                    <td>所属省份</td>
+                    <td class="tdleft">
+                          <select name="location_p" id="location_p" style="width:200px;">
+                          </select>
+                          <span style="color:red">*</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                	<tr>
+                    	<td>客户联系人</td>
+                    	<td class="tdleft"><input id="contacts" name="Text1" type="text" maxlength="16" style="width:200px;"> <span style="color:red">*</span></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                	<tr>
+                    <td>所属城市</td>
+                    <td class="tdleft">
+                          <select name="location_c" id="location_c" style="width:200px;">
+                          </select>
+                          <span style="color:red">*</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>客户联系电话</td>
+                    <td class="tdleft">
+                      <input id="phonenumber" name="Text1" type="text" maxlength="16" style="width:200px;" onkeyup="phonenumber_check()"/>
+                      <span style="color:red">*</span><span id="check_mobile_span" style="color:#aaa;font-size:14px;">不是有效的电话号码格式！</span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>业务负责人</td>
+                    <td class="tdleft">
+                      <select name="Select1" id="customerservice" class="salemanclass" style="width:200px;">
+                          <option selected="">暂无销售员</option>
+                      </select>
+                      <span style="color:red">*</span>
+                      <br/>
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>业务协助人1</td>
+                    <td class="tdleft">
+                      <select name="Select2" id="BusinessManOne" class="salemanclass" style="width:200px;">
+                          <option selected="">暂无销售员</option>
+                      </select>
+                      <br/>
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>业务协助人2</td>
+                    <td class="tdleft">
+                      <select name="Select3" id="BusinessManTwo" class="salemanclass" style="width:200px;">
+                          <option selected="">暂无销售员</option>
+                      </select>
+                      <br/>
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>密码设置</td>
+                    <td class="tdleft">
+                      <input id="passwordsetting" name="passwordsetting" type="text" maxlength="16" style="width:200px;"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                      <span style="color:red">*</span>
+                    </td>
+                  	<td></td>
+                  	<td></td>
+                  </tr>
+                	<tr>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td>
+                        <div id="customer_save_div" style="display:none;">
+                          <button class="btn btn-primary" onclick="customer_save()">保 存</button>
+                        </div>
+                        <div id="customer_submit_div">
+                          <button class="btn btn-primary" onclick="customer_submit()">创建新用户</button> <button class="btn btn-default" onclick="add_customer_btn()">取 消</button>
+                        </div>
+                      </td>
+                    </tr>
+                </table>
+            </td>
+          </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

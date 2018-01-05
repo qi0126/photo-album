@@ -1,111 +1,143 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-   <title>Bootstrap 实例 - 折叠面板</title>
-    <script type="text/javascript" src="../js/new/jquery.min.js"></script>
-    <link href="../css/new/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/jBootsrapPage.css" rel="stylesheet" />
-    <link href="../css/products.css" rel="stylesheet"  >
-    <script src="../js/jBootstrapPage.js"></script>
-    <script src="../js/http.js"></script>
-    <script src="../js/new/bootstrap.min.js"></script>
-    <link href="../css/promotion_category.css" rel="stylesheet" >
-    <!-- 图片拖动排序开始 -->
-    <script type="text/javascript" src="../js/jquery.dragsort-0.5.2.min.js"></script>
-    <!-- 图片拖动排序结束 -->
+  <title></title>
+  <script type="text/javascript" src="../js/new/jquery.min.js"></script>
+  <link href="../css/new/bootstrap.min.css" rel="stylesheet">
+  <script src="../js/http.js"></script>
+  <script src="../js/new/bootstrap.min.js"></script>
+  <link href="../css/promotion_category.css" rel="stylesheet">
 </head>
-<body style="background-color:#eee;">
-    <div class="contain">
-        <div id="breadcrumb">
-            <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
-            <a href="products.html">珠宝图鉴后台管理系统</a>
-            <img src="../img/breadcrumb.png"/>
-            <span class="font16">推广类别</span>
-        </div>
-		<div>
-    	<div class="category_edit">
-        	<h3>推广类别</h3>
-            <p>提示：类别编辑可对选中类别进行新建子类别、重命名、删除操作。类别名称，双击类别名称即可。</p>
-            <p>点击链接设定可自定义设置点击该图片所指向的链接。</p>
-        </div>
-        <div class="category_edit_div">
-        	<div class="category_edit_div_left">
-            	<div class="slide_view">
-                  <div class="top_font">类别编辑</div>
-                  <div id="create_category">+ 新建推广类别</div>
-                  <div id="leftmenu_newlist" style="width:100%;padding:0 10px 0 10px;">
-                    	<ul id="leftmenu_newlist_sub">
-                    	</ul>
-                      <input name="list1SortOrder" type="hidden" />
-                  </div>
-                  <div class="wrap-menu">
-                  </div>
-                  <!-- <div class="container" style="width:100%;padding:0 10px 0 10px;display:none">
-                      <div class="panel-group" id="accordion">
-                      </div>
-                  </div> -->
-                  <div id="leftmenu_newdiv" style="width:100%;padding:0 10px 0 10px;">
-                  </div>
-              	</div>
-            </div>
-            <div class="category_edit_div_right">
-                  <div class="content">
-                    <div class="top_font">类别产品编辑<span id="category_edit_span"></span></div>
-                    <p>
-                      <!-- <button class="btn btn-info" id="update_category" onclick="updateCategoryShowView(this)">调整推广类别</button> -->
-                      <!-- 批量删除按钮在JS写入 -->
-                      <span id="multiDel_div"></span>
-                    </p>
-                    <div style="border: none; width:100%">
-                      <table>
-                        <thead>
-                          <tr>
-                            <td><input id="all-select-btn" type="checkbox" name="all_select" onclick="allSelectOs(this)" style=" margin:0;vertical-align:middle;"> 全选</td><td>匹配图</td><td>产品</td><td>产品编号</td><td>所属类别</td><td>操作</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
-                      <div id="pages_div"></div>
-                    </div>
-                  </div>
-            </div>
-        </div>
-        <div id="cover" class="cover"></div>
-        <div id="oncover" class="oncover">
-          <form name="create_promotion_category" style="margin:0;">
-           	<div class="pop_window_top">添加的类别名称:</div>
-            	<input type="text" name="category_name" placeholder="请输入类别名称..."  maxlength="8" >
-          </form>
-          <hr style="margin:5px;"/>
-          <div class="pop_window_bottom">
-              <button id="btn_add_category_submit" class="btn btn-primary">提交</button>
-              <button id="btn_add_category_cancel" class="btn btn-default">取消</button>
+
+<body style="background:#eee url(../images/bg.png) left top repeat;">
+  <div class="contain">
+    <div id="breadcrumb">
+      <img src="../images/home.png" width="18px" style=" margin-top:-4px" />
+      <a href="products.html">尚臻品后台管理系统</a>
+      <img src="../img/breadcrumb.png" />
+      <span class="font16">推广类别</span>
+    </div>
+    <div class="main-wrapper">
+      <div class="tip-wrapper">
+        <h3>推广类别</h3>
+        <p>提示：类别编辑可对选中类别进行新建子类别、重命名、删除操作。类别名称，双击类别名称即可。</p>
+        <p>点击链接设定可自定义设置点击该图片所指向的链接。</p>
+      </div>
+      <!-- 内容区域 -->
+      <div class="content-wrapper">
+        <!-- 类别 -->
+        <div class="left-wrapper">
+          <h4 class="title">类别编辑</h4>
+          <div class="new-kind">
+            <button class="btn btn-primary">新建推广类别</button>
+          </div>
+          <div class="kind-list">
+            <ul>
+              加载中...
+            </ul>
           </div>
         </div>
-
-          <div id="oncover1" class="oncover">
-            <form name="create_topic" style="margin:0;">
-              <div class="pop_window_top">添加的主题名称:</div>
-              <input type="text" name="topic_name" placeholder="请输入主题名称..." maxlength="8">
-            </form>
-            <hr style="margin:5px;"/>
-            <div class="pop_window_bottom">
-                <button id="btn_add_topic_submit" onclick="addTopic(this)" class="btn btn-primary">提交</button>
-                <button id="btn_add_topic_cancel" onclick="closeAddTopicView(this)" class="btn btn-default">取消</button>
-            </div>
+        <!-- 类别详情 -->
+        <div class="right-wrapper">
+          <h4 class="title">类别产品编辑-类别：
+            <span class="kind">【暂无】</span>
+          </h4>
+          <div class="btn-list">
+            <button class="btn btn-info" id="change-kind">调整推广类别</button>
+            <button class="btn btn-danger" id="delete-all">批量删除</button>
           </div>
+          <div class="kind-detail">
+            <table>
 
-          <div id="oncover2" class="oncover" style="padding:0;"></div>
+            </table>
+          </div>
         </div>
-
+      </div>
     </div>
 
+  </div>
+
+  <!-- 添加主题模态框 -->
+  <div id="addTheme" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="gridSystemModalLabel">添加主题</h4>
+        </div>
+        <div class="modal-body">
+          <input id="themeName" type="text" placeholder="请输主题名称..." autocomplete="off" class="form-control" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" id="saveTheme">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 添加推广类别模态框 -->
+  <div id="addKind" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="gridSystemModalLabel">添加类别</h4>
+        </div>
+        <div class="modal-body">
+          <input id="kindName" type="text" placeholder="请输入类别名称..." autocomplete="off" class="form-control" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" id="saveKind">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 编辑类名 -->
+  <div id="editKindName" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="gridSystemModalLabel">编辑类名</h4>
+        </div>
+        <div class="modal-body">
+          <input id="kindName" type="text" placeholder="请输如新的类别名称..." autocomplete="off" class="form-control" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" id="saveKindName">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 调整推广类别 -->
+  <div id="changeKind" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="gridSystemModalLabel">调整推广类别</h4>
+        </div>
+        <div class="modal-body">
+          <div class="kind">
+            <table></table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" id="save">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script type="text/javascript" src="../js/promotion_category.js"></script>
-  <style>
-  .btn{
-    font-size: 16px;
-  }
-  </style>
+
 </body>
+
 </html>

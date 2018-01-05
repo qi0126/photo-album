@@ -27,24 +27,58 @@
 <body>
 <div class="Layout_style">
   <!--提示下载APP顶部条选项-->
-  <div class="appdiv" id="appdiv">
-    <div class="downloadappdiv">
-      <span style="float:left;width:56px;"><img src="images/icon/33.png" width="50px"></img></span>
-      <span style="float:left;width:130px;">珠宝图鉴<br/>海量图库，优先选购<span>
-    </div>
-    <button class="close_download_button" onclick="close_appdiv()">
-      <img src="images/icon/44.png" width="30px"></img>
-    </button>
-    <a class="appbutton" id="app01" style="display:none;" type="button" href="/photo-album/weixin/Android_download.html">APP下载</a>
-    <a class="appbutton" id="app02" style="display:none;" type="button" href="http://fir.im/enterpriseUrl">APP下载</a>
+  <!-- <div id="use"></div> -->
+  <div class="appdiv" id="appdiv" style="padding-top:10px;">
+    <table style="width: 100%;" id="browser_display_table" cellspacing="0" cellpadding="0">
+      <tr>
+        <td style="padding-left:8px;width:55px;">
+           <img src="images/icon/33.png" width="50px"></img>
+        </td>
+        <td>
+          <img src="images/zhubao_tujian.png" height="32px"></img>
+        </td>
+        <td style="text-align:right;padding-right:8px">
+          <a id="app01" href="/photo-album/weixin/Android_download.html"><img src="images/app_xiazai.png" height="35px"></a>
+          <a id="app02" href="https://fir.im/shangzhenpincc"><img src="images/app_xiazai.png" height="35px"></a>
+        </td>
+        <td style="text-align:right;padding-right:8px;">
+          <img src="images/guanbi.png" width="25px" onclick="close_appdiv()"/>
+        </td>
+      </tr>
+    </table>
+    <table style="width: 100%;" id="computer_display_table" cellspacing="0" cellpadding="0">
+      <tr>
+        <td style="padding-left:8px;width:55px;">
+           <img src="images/icon/33.png" width="50px"></img>
+        </td>
+        <td>
+          <img src="images/zhubao_tujian.png" height="32px"></img>
+        </td>
+        <td style="text-align:right;padding-right:8px">
+          <a id="app03" href="/photo-album/weixin/Android_download.html"><img src="images/ANDROID.png" height="35px"></a>
+          <a id="app04" href="https://fir.im/shangzhenpincc"><img src="images/IOS.png" height="35px"></a>
+        </td>
+        <td style="text-align:right;padding-right:8px;">
+          <img src="images/guanbi.png" width="25px" onclick="close_appdiv()"/>
+        </td>
+      </tr>
+    </table>
+    <table style="width: 100%" id="weixin_display_table" cellspacing="0" cellpadding="0">
+      <tr>
+        <td style="padding-left:8px;width:55px;"><img src="images/icon/33.png" width="50px"></img></td>
+        <td style="text-align:right;padding-right:20px;"><img src="images/jiantou_zhiyin.png" width="280px" /></td>
+      </tr>
+    </table>
+
   </div>
 
 <!--顶部通用样式-->
- <header id="header">
-  <div class="header_l header_return"><a href="index.html" class="iconfont icon-back"></a></div>
-  <h1> 产品详细页 </h1>
-  <div class="header_r"></div>
-</header>
+  <header id="header">
+    <div class="header_l header_return" style="display:none;"><a href="index.html" class="iconfont icon-back"></a></div>
+    <h1> 产品详细页 </h1>
+    <div class="header_r"></div>
+  </header>
+
  <section class="goods_slider">
    <!--首页轮播-->
    <div>
@@ -116,19 +150,64 @@
 </div>
 </div>
 <script>
+
 //APP下载按钮判断是安卓还是IOS
 var u = navigator.userAgent, app = navigator.appVersion;
+// $('#use').html(u);
 
 //android终端或者uc浏览器
 if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
  $("#app01").show();
  $("#app02").hide();
+ // $('.close_download_button').hide();
 }
+
+
 //ios终端
 if(!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
  $("#app01").hide();
  $("#app02").show();
 }
+
+
+
+if (u.indexOf('MicroMessenger') > -1) {
+  $("#browser_display_table").hide();
+  $("#weixin_display_table").show();
+  $("#computer_display_table").hide();
+  $("#app01").hide();
+  $("#app02").hide();
+  //在微信中打开
+}else{
+  //电脑浏览器打开
+  if(u.indexOf('Windows') > -1){
+    $("#browser_display_table").hide();
+    $("#weixin_display_table").hide();
+    $("#computer_display_table").show();
+  }else{
+    //手机浏览器打开
+    $("#browser_display_table").show();
+    $("#weixin_display_table").hide();
+    $("#computer_display_table").hide();
+  }
+}
+//
+
+
+
+
+  var post_data = new FormData();
+  post_data.append('type', 1);
+  http.postAjax_clean("/photo-album/mobileUpdate/topVersion", post_data,function(data) {
+    if(data.code == 0){
+      // console.log(data.data.url);
+      $('#app01')[0].href =data.data.url;
+      // console.log($('#app01'));
+    }else{
+      alert(data.msg);
+    }
+  });
+
 </script>
 
 </body>

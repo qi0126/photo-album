@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>销售区域设置</title>
+    <link rel="stylesheet" href="../css/app.css">
+    <link href="../css/imgcenter.css" rel="stylesheet" />
+    <!--图标样式-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!--主要样式-->
+    <link href="../css/jsontree.css" rel="stylesheet"/>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/permission_setting.js"></script>
+</head>
+<body style="background-color:#eee;">
+    <div id="breadcrumb">
+        <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+        <a href="products.html">尚臻品后台管理系统</a>
+        <img src="../img/breadcrumb.png"/>
+        <span class="font16">权限设置</span>
+    </div>
+    <div>
+    	<table class="imgcentertab" cellpadding="0" border="1"  cellspacing="10">
+          <tr class="imgctabtr" bgcolor="#2b6aa2">
+            <td width="30%" align="center">权 限</td>
+            <td width="70%" align="center">功 能</td>
+          </tr>
+          <tr style="">
+            <td valign="top">
+            	<div>
+                	<button  class="btn btn-primary btn-lg btn-block">添加一级权限</button>
+                </div>
+                <div>
+                  <div class="tree well">
+                    <ul id="rootUL">
+                    </ul>
+                  </div>
+                </div>
+            </td>
+            <td valign="top">
+              <div class="tree1 well">
+                <ul id="rootUL1">
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+    </div>
+</body>
+</html>

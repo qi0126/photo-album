@@ -16,9 +16,9 @@ function foot_display(elem){
       });
   }
   else{
-    $("#isurl").hide();
-    $("#istel").hide();
-    $("#isaddress").hide();
+    // $("#isurl").hide();
+    // $("#istel").hide();
+    // $("#isaddress").hide();
       // $("#display_logo").hide();
       $("#pageurl").attr("disabled","disabled");
       $("#telnumber").attr("disabled","disabled");
@@ -30,59 +30,108 @@ function foot_display(elem){
       });
   }
 }
-
-http.getAjax_clean("/photo-album/index/get_botton_bar", function(data){
-  //console.log(data.isurl);
-  if(data.isurl==true){
-    document.getElementById("isurl").checked=true;
-  }else{
-    document.getElementById("isurl").checked=false;
-  }
-  if(data.istel==true){
-    document.getElementById("istel").checked=true;
-  }else{
-    document.getElementById("istel").checked=false;
-  }
-  if(data.isaddress==true){
-    document.getElementById("isaddress").checked=true;
-  }else{
-    document.getElementById("isaddress").checked=false;
-  }
-});
-
 $(function(){
 	logolist();
+
+  //权限管理适配开始
+  setTimeout(function(){
+   var lStorage=window.localStorage;
+  var NoAuthMenu_data = JSON.parse(lStorage.NoAuthMenu_data);
+  // console.log(NoAuthMenu_data);
+    $(NoAuthMenu_data).each(function(o,oelem){
+      if(oelem.type == 1){
+        // console.log(oelem.menuname);
+        switch (oelem.menuname) {
+          // 编辑跳转主页
+          case '开启联系我们':
+            // console.log(oelem);
+            $('#contactus_tf_div').hide();
+            // $('#isurl').hide();
+            // $('#pageurl').attr("disabled","false");
+            break;
+          // 编辑跳转主页
+          case '编辑跳转主页':
+            // console.log(oelem);
+            $('#isurl').hide();
+            $('#pageurl').attr("disabled","false");
+            break;
+          //编辑拨打电话
+          case '编辑拨打电话':
+            $('#istel').hide();
+            $('#telnumber').attr("disabled","false");
+            break;
+          //编辑导航地址
+          case '编辑导航地址':
+            $('#isaddress').hide();
+            $('#address').attr("disabled","false");
+            break;
+        }
+      }
+    });
+  },200);
+  //权限管理适配结束
+
 });
 
 function logolist(){
 	var logolist_html='';
 	http.getAjax_clean("/photo-album/index/get_botton_bar", function(data){
+    // console.log(data);
     // console.log(data.isopen);
 		// console.log(data.isopen);
     if (data.isopen) {
-      document.getElementById("foot_checkbox").checked=true;
+      // document.getElementById("foot_checkbox").checked=true;
       // $("#display_logo").show();
       $("#pageurl").removeAttr("disabled");
       $("#telnumber").removeAttr("disabled");
       $("#address").removeAttr("disabled");
-      $("#isurl").show();
-      $("#istel").show();
-      $("#isaddress").show();
+      // $("#isurl").show();
+      // $("#istel").show();
+      // $("#isaddress").show();
     }else{
-      document.getElementById("foot_checkbox").checked=false;
+      // document.getElementById("foot_checkbox").checked=false;
       // $("#display_logo").hide();
       $("#pageurl").attr("disabled","disabled");
       $("#telnumber").attr("disabled","disabled");
       $("#address").attr("disabled","disabled");
-      $("#isurl").hide();
-      $("#istel").hide();
-      $("#isaddress").hide();
+      // $("#isurl").hide();
+      // $("#istel").hide();
+      // $("#isaddress").hide();
     }
-		logolist_html='<img src="/photo-album/index/image_logo/'+data.image+'" width="720px" height="125px"/>';
-		$("#logoimg").html(logolist_html);
+		// logolist_html='<img src="/photo-album/index/image_logo/'+data.image+'" width="720px" height="125px"/>';
+		// $("#logoimg").html(logolist_html);
+    // console.log(data.isurl);
+    if(data.isurl==true){
+      document.getElementById("isurl").checked=true;
+      $("#pageurl").removeAttr("disabled");
+    }else{
+      document.getElementById("isurl").checked=false;
+      $("#pageurl").attr("disabled","disabled");
+    }
+    if(data.istel==true){
+      document.getElementById("istel").checked=true;
+      $("#telnumber").removeAttr("disabled");
+    }else{
+      document.getElementById("istel").checked=false;
+      $("#telnumber").attr("disabled","disabled");
+    }
+    if(data.isaddress==true){
+      document.getElementById("isaddress").checked=true;
+      $("#address").removeAttr("disabled");
+    }else{
+      document.getElementById("isaddress").checked=false;
+      $("#address").attr("disabled","disabled");
+    }
 		$("#pageurl").val(data.url);
 		$("#telnumber").val(data.tel);
 		$("#address").val(data.address);
+
+		if(data.isSale == '1'){
+			document.getElementById("isCallSaller").checked=true;
+		}else{
+			document.getElementById("isCallSaller").checked=false ;
+		}
+
 	});
 }
 //上传图片
@@ -146,37 +195,42 @@ function changeurl(elem){
 	});
 }
 
+function isCallSaller(elem){
+		var isChecked = $(elem)[0].checked ? 1 : 0;
+		var post_data = new FormData();
+		post_data.append("isSale",isChecked);
+		http.postAjax_clean("/photo-album/index/set_botton_bar", post_data ,function(data){
+	//		if(data["state"]==true){
+	//    $("#datasavesuccess_btn").show();
+	//    setTimeout("$('#datasavesuccess_btn').hide();location.reload();",2000);
+	//		}else{
+	//			// alert("修改主页URL成功！");
+	//		}
+		});
+}
+
+//
 function isurl(elem){
-  if(elem.checked){
-    var post_data = new FormData();
-    post_data.append("isurl",1);
-    http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
-      if(data["state"]==true){
-        $("#datasavesuccess_btn").show();
-        setTimeout("$('#datasavesuccess_btn').hide();location.reload();",2000);
-      }
-    });
-  }else{
+  if((!$("#isurl")[0].checked)&&(!$("#istel")[0].checked)&&(!$("#isaddress")[0].checked)){
+    $("#pageurl").attr("disabled","disabled");
+    $("#telnumber").attr("disabled","disabled");
+    $("#address").attr("disabled","disabled");
     var post_data = new FormData();
     post_data.append("isurl",0);
+    post_data.append("isopen",0);
     http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
       if(data["state"]==true){
         $("#datasavesuccess_btn").show();
         setTimeout("$('#datasavesuccess_btn').hide()",2000);
       }
     });
-
-  }
-}
-function isurl(elem){
-  if((!$("#isurl")[0].checked)&&(!$("#istel")[0].checked)&&(!$("#isaddress")[0].checked)){
-    foot_display(!$("#foot_checkbox")[0]);
-    document.getElementById("isurl").checked=true;
-    document.getElementById("foot_checkbox").checked=false;
   }else{
     if(elem.checked){
+      $("#pageurl").removeAttr("disabled");
+      // document.getElementById("telnumber").disabled=true;
       var post_data = new FormData();
       post_data.append("isurl",1);
+      post_data.append("isopen",1);
       http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
         if(data["state"]==true){
           $("#datasavesuccess_btn").show();
@@ -184,6 +238,7 @@ function isurl(elem){
         }
       });
     }else{
+      $("#pageurl").attr("disabled","disabled");
       var post_data = new FormData();
       post_data.append("isurl",0);
       http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
@@ -197,13 +252,25 @@ function isurl(elem){
 }
 function istel(elem){
   if((!$("#isurl")[0].checked)&&(!$("#istel")[0].checked)&&(!$("#isaddress")[0].checked)){
-    foot_display(!$("#foot_checkbox")[0]);
-    document.getElementById("istel").checked=true;
-    document.getElementById("foot_checkbox").checked=false;
+    $("#pageurl").attr("disabled","disabled");
+    $("#telnumber").attr("disabled","disabled");
+    $("#address").attr("disabled","disabled");
+    var post_data = new FormData();
+    post_data.append("istel",0);
+    post_data.append("isopen",0);
+    http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
+      if(data["state"]==true){
+        $("#datasavesuccess_btn").show();
+        setTimeout("$('#datasavesuccess_btn').hide()",2000);
+      }
+    });
   }else{
     if(elem.checked){
+      // console.log("aaaaa");
+      $("#telnumber").removeAttr("disabled");
       var post_data = new FormData();
       post_data.append("istel",1);
+      post_data.append("isopen",1);
       http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
         if(data["state"]==true){
           $("#datasavesuccess_btn").show();
@@ -211,6 +278,7 @@ function istel(elem){
         }
       });
     }else{
+      $("#telnumber").attr("disabled","disabled");
       var post_data = new FormData();
       post_data.append("istel",0);
       http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
@@ -224,14 +292,24 @@ function istel(elem){
 }
 function isaddress(elem){
   if((!$("#isurl")[0].checked)&&(!$("#istel")[0].checked)&&(!$("#isaddress")[0].checked)){
-    foot_display(!$("#foot_checkbox")[0]);
-    document.getElementById("isaddress").checked=true;
-    document.getElementById("foot_checkbox").checked=false;
-    // location.reload();
+    $("#pageurl").attr("disabled","disabled");
+    $("#telnumber").attr("disabled","disabled");
+    $("#address").attr("disabled","disabled");
+    var post_data = new FormData();
+    post_data.append("isaddress",0);
+    post_data.append("isopen",0);
+    http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
+      if(data["state"]==true){
+        $("#datasavesuccess_btn").show();
+        setTimeout("$('#datasavesuccess_btn').hide()",2000);
+      }
+    });
   }else{
     if(elem.checked){
+      $("#address").removeAttr("disabled");
       var post_data = new FormData();
       post_data.append("isaddress",1);
+      post_data.append("isopen",1);
       http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){
         if(data["state"]==true){
           $("#datasavesuccess_btn").show();
@@ -239,6 +317,7 @@ function isaddress(elem){
         }
       });
     }else{
+      $("#address").attr("disabled","disabled");
       var post_data = new FormData();
       post_data.append("isaddress",0);
       http.postAjax_clean("/photo-album/index/set_botton_flag", post_data,function(data){

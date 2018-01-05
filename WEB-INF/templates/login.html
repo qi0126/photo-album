@@ -2,46 +2,57 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>珠宝图鉴后台管理系统</title>
+    <title>尚臻品后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/http.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+  	<link rel="stylesheet" href="css/bootstrap.min.css" />
+  	<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" href="css/matrix-login.css" />
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="img/ico.ico"/>
 
+    <script type="text/javascript">
+      // if (self != top) {  //主页不允许在iframe中
+      // 	top.window.location.reload();
+      // }
+    </script>
 </head>
 <body>
-    <div id="loginbox">
-        <div class="control-group normal_text"> 
-            <h2 class="login_top">珠宝图鉴后台管理系统</h2>
-        </div>
-        <form id="loginform" class="form-vertical" method="post" action="login">
-            <div class="control-group">
-                <label class="control-label">用户名</label>
-                <div class="controls">
-                    <div class="main_input_box">
-                        <span class="add-on bg_lg"><i class="icon-user" style="font-size:16px;"></i></span>
-                        <input name="username" type="text"/>
-                    </div>
-                </div>
-            </div>
-            <div class="control-group2">
-                <label class="control-label">密 码</label>
-                <div class="controls">
-                    <div class="main_input_box">
-                        <span class="add-on bg_ly"><i class="icon-lock" style="font-size:16px;"></i></span>
-                        <input name="password" type="password" />
-                    </div>
-                </div>
-            </div>
-            <div class="form-actions">
-                <span class="pull-right">
-                	<input type="submit" id="checkBtn" class="btn btn-success" style="width:445px;" value=" 登&nbsp;&nbsp;&nbsp;&nbsp;录"/>
-                </span>
-            </div>
-        </form>
-		<div style="font-size:14px;color:gray; text-align:center; margin-top:20px;">版权所有 © 百泰集团信息管理中心</div>
-    </div>
+  <div style="position:relative">
+   <div id="loginbox_background"></div>
+   <div id="loginbox">
+       <div class="control-group normal_text">
+           <h2 class="login_top">尚臻品后台管理系统</h2>
+       </div>
+       <!-- <form id="loginform" class="form-vertical" method="post" action="login"> -->
+           <div class="control-group">
+               <div class="controls">
+                   <div class="main_input_box">
+                       <span class="add-on bg_lg"><i class="icon-user"></i></span>
+                       <input name="username" type="text" autocomplete="off" onkeydown="return username_fun(event)" placeholder="请输入账号"/>
+                   </div>
+               </div>
+           </div>
+           <div class="control-group2">
+               <div class="controls">
+                   <div class="main_input_box">
+                       <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                       <input id="password_input" name="password" type="password" autocomplete="off" onkeydown="return password_fun(event)" style="margin-top:-5px;" placeholder="请输入密码"/>
+                   </div>
+               </div>
+           </div>
+           <div id="login_error_text" style="display:none;font-size:16px;color:#fff;"></div>
+           <div class="form-actions" style="padding:0">
+              <!-- <input type="submit" id="checkBtn" class="btn btn-primary" style="width:445px;background-color:#2b6aa2;height:38px" value=" 登&nbsp;&nbsp;&nbsp;&nbsp;录" onclick="checkman_btn()"/> -->
+              <button type="submit" id="checkBtn" class="btn btn-primary" style="" onclick="checkman_btn()" >登 录</button>
+           </div>
+       <!-- </form> -->
+       <div id="pagebottom_text">版权所有 © 百泰集团信息管理中心</div>
+   </div>
+
+  </div>
 </body>
 
 </html>

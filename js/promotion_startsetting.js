@@ -43,7 +43,7 @@ $(function(){
          post_data.append('size', 10000);
         //  console.log(data.action);
          http.postAjax_clean("/photo-album/product/get_all_product", post_data,function(data) {
-           console.log(data);
+          //  console.log(data);
            if(action_id){
              $(data.page).each(function(j,proelem){
               //  console.log(proelem);
@@ -67,6 +67,39 @@ $(function(){
        default:
      }
   });
+
+    //权限管理适配开始
+    setTimeout(function(){
+      var lStorage=window.localStorage;
+      var NoAuthMenu_data = JSON.parse(lStorage.NoAuthMenu_data);
+      // console.log(NoAuthMenu_data);
+      $(NoAuthMenu_data).each(function(o,oelem){
+        if(oelem.type == 1){
+          // console.log(oelem.menuname);
+          switch (oelem.menuname) {
+            // 开启/关闭推广
+            case '开启/关闭推广':
+              $('#startup_istf_span').hide();
+              break;
+            //更换推广图片
+            case '更换推广图片':
+              $('input[name=img_upload]').hide();
+              // $('#istel').hide();
+              break;
+            //编辑导航地址
+            case '设置推广倒计时':
+              $('#second_select_div').hide();
+              break;
+            //设置推广途径
+            case '设置推广途径':
+              $('#promo_settingselect_div').hide();
+              // $('#isaddress').hide();
+              break;
+          }
+        }
+      });
+    },200);
+    //权限管理适配结束
 });
 
 function winonload(){
@@ -148,14 +181,14 @@ function startup_onepro_display(x){
 //启动推广设置开启或关闭按钮
 function startup_istf(elem){
   if(elem.checked){
-    $("#second_imglist").show();
+    // $("#second_imglist").show();
     var post_data = new FormData();
     post_data.append('isopen', 1);
     http.postAjax_clean("/photo-album/startup/set_startup", post_data,function(data) {
       console.log(data);
     });
   }else{
-    $("#second_imglist").hide();
+    // $("#second_imglist").hide();
     var post_data = new FormData();
     post_data.append('isopen', 0);
     http.postAjax_clean("/photo-album/startup/set_startup", post_data,function(data) {
@@ -232,15 +265,20 @@ function input_setting_url_fun(x){
 }
 //2保存单个产品“提交更改产品”按钮
 function startup_onepro_fun(x){
-  var onepro_checkbox = $('#onepro-div input[type="radio"]:checked');
-  // console.log(onepro_checkbox[0].value);
-  var post_data = new FormData();
-  post_data.append('actiontype',x);
-  post_data.append('action',onepro_checkbox[0].value);
-  http.postAjax_clean("/photo-album/startup/set_startup", post_data,function(data) {
-    // console.log(data);
-    location.reload();
-  });
+  // console.log($('#onepro-div input[type="radio"]:checked').length);
+  if($('#onepro-div input[type="radio"]:checked').length == 1){
+    var onepro_checkbox = $('#onepro-div input[type="radio"]:checked');
+    // console.log(onepro_checkbox);
+    var post_data = new FormData();
+    post_data.append('actiontype',x);
+    post_data.append('action',onepro_checkbox[0].value);
+    http.postAjax_clean("/photo-album/startup/set_startup", post_data,function(data) {
+      // console.log(data);
+      location.reload();
+    });
+  }else{
+    alert("还没有选择产品，请重新选择！");
+  }
 }
 
 //1“提交更改推广类别”按钮事件
@@ -249,7 +287,7 @@ function selected_promotion_submit(x){
   var selected_promotion_radio = $("#selected_promotion_body input[type='radio']:checked");
   // console.log(selected_promotion_radio[0]);
   if(selected_promotion_radio.length != 0){
-    console.log(selected_promotion_radio[0].value);
+    // console.log(selected_promotion_radio[0].value);
     var selected_promotion_action_text =selected_promotion_radio[0].value+'-'+selected_promotion_radio[0].id;
     var post_data = new FormData();
     post_data.append('actiontype',x);

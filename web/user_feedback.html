@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>轮播首页</title>
+    <link rel="stylesheet" href="../css/new/bootstrap.min.css"/>
+    <script src="../js/new/jquery.min.js"></script>
+    <script src="../js/new/bootstrap.min.js"></script>
+    <script src="../js/http.js"></script>
+    <script src="../js/user_feedback.js"></script>
+    <link rel="stylesheet" href="../css/user_feedback.css">
+    <style>
+      .btn{
+        font-size:16px;
+      }
+    </style>
+
+</head>
+<body style="background:#f5f5f5 url(../images/bg.png) left top repeat;min-width:1325px;">
+  <div id="breadcrumb">
+      <img src="../images/home.png" width="18px" style=" margin-top:-4px"/>
+      <a href="products.html">尚臻品后台管理系统</a>
+      <img src="../img/breadcrumb.png"/>
+      <span class="font16">用户反馈</span>
+  </div>
+  <div class="user_bigarea">
+    <div>
+      问题状态查看:
+      <select id="select_html_state" name="Select1" onchange="userfeed_list(1)">
+  			<option value="" selected="selected">全部状态</option>
+        <option value="0">未查看问题</option>
+        <option value="1">已查看问题</option>
+  		</select>
+    </div>
+    <div>
+      问题分类查看:
+      <select id="select_html_type" name="Select2" onchange="userfeed_list(1)">
+        <option value="" selected="selected">全部问题</option>
+        <option value="1">苹果APP程序问题</option>
+        <option value="2">安卓APP程序问题</option>
+        <option value="3">产品问题</option>
+        <option value="4">跳转问题（后台设置）</option>
+        <option value="5">客户建议</option>
+      </select>
+      <input id="input_html_keyword" name="Text1" type="text" placeholder="请输入关键字搜索"/>
+      <button type="button" class="btn btn-info" onclick="userfeed_list(1)">关键字搜索</button>
+      <div style="width:170px;float:right">
+        此类问题共有:<span id="user_feedback_number"></span>个
+      </div>
+    </div>
+    <div style="width:100%;margin-top:10px;">
+  			<div class="panel-group" id="accordion">
+  					<!-- <div class="panel panel-default">
+  							<div class="panel-heading">
+  									<h4 class="panel-title">
+  											<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                          <table style="width: 100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td>反馈号：201704210001</td>
+                              <td>账号：周大生</td>
+                              <td>编号：0001</td>
+                              <td>时间：2017-04-21   09:45:21</td>
+                              <td>状态：未查看</td>
+                              <td><span id="span3" class="spanclass">▼</span></td>
+                            </tr>
+                          </table>
+  											</a>
+  									</h4>
+  							</div>
+  							<div id="collapse3" class="panel-collapse collapse">
+  									<div class="panel-body">
+                      <table style="width: 100%" cellspacing="0" cellpadding="0">
+                      	<tr>
+                      		<td class="tab_tdleft">联系方式：</td>
+                      		<td>135123456123</td>
+                      	</tr>
+                      	<tr>
+                      		<td class="tab_tdleft">问题和意见：</td>
+                      		<td>有XXXXXXXXXXX问题</td>
+                      	</tr>
+                      	<tr>
+                      		<td class="tab_tdleft">问题分类：</td>
+                      		<td>苹果APP程序问题</td>
+                      	</tr>
+                      	<tr>
+                      		<td class="tab_tdleft">处理意见：</td>
+                      		<td>提交项目组开发</td>
+                      	</tr>
+                      </table>
+  									</div>
+  							</div>
+  					</div> -->
+  			</div>
+        <!--分页div-->
+        <div id="fenpage_div"></div>
+  	   </div>
+  </div>
+</body>
+</html>

@@ -264,7 +264,7 @@ hr{ border-top-color:#dadada;}
 }
 /* Content */
 #content {
-	background: none repeat scroll 0 0 #eeeeee;
+	background:#eeeeee url(../images/bg.png) left top repeat;
 	margin-left: 220px;
 	margin-right: 0;
 	position: relative;
